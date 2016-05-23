@@ -1,0 +1,44 @@
+allprojects {
+    group = "pl.carp"
+    version = "0.1"
+}
+
+ext {
+    springBootVersion = "1.3.5.RELEASE"
+    springVersion = "4.2.6.RELEASE"
+}
+
+subprojects {
+
+    apply plugin: "java"
+    apply plugin: "idea"
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    buildscript {
+
+        dependencies {
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        }
+
+        repositories {
+            mavenCentral()
+        }
+    }
+
+    repositories {
+        mavenCentral()
+        jcenter()
+
+        mavenLocal()
+    }
+
+    dependencies {
+        testCompile "junit:junit:4+"
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.13"
+}

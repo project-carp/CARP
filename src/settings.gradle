@@ -1,0 +1,5 @@
+rootProject.name = "carp"
+
+include ":carp-api"
+include ":carp-common"
+include ":carp-webapp"
