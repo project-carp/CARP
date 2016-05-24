@@ -42,3 +42,7 @@ subprojects {
 task wrapper(type: Wrapper) {
     gradleVersion = "2.13"
 }
+
+task stage {
+  dependsOn build
+}
