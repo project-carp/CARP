@@ -5,10 +5,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-public class BootstrapController {
+@RequestMapping("/rs/")
+public class MaintenanceController {
 
-    @RequestMapping("/")
+
+    @RequestMapping("/version")
     public String index() {
-        return "Carpooling!!!";
-    }
+        return "0.0.1";
+    } //TODO inject gradle build version
 }
