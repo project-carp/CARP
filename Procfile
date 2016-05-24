@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT -jar src/carp-webapp/build/libs/carp-webapp-0.1.jar
