@@ -9,17 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var router_deprecated_1 = require('@angular/router-deprecated');
+var LoginPage = (function () {
+    function LoginPage(router) {
+        this.router = router;
     }
-    AppComponent = __decorate([
+    LoginPage = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: '<h1>Carpoling in Angular2, mmmm, wow ...</h1>'
+            selector: 'login-tag',
+            templateUrl: 'app/login/login.component.html',
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [router_deprecated_1.Router])
+    ], LoginPage);
+    return LoginPage;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.LoginPage = LoginPage;
+//# sourceMappingURL=login.component.js.map
