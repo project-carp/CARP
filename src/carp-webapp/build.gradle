@@ -1,12 +1,24 @@
 apply plugin: "spring-boot"
+apply plugin: 'com.moowork.node'
 
 buildscript {
+
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "com.moowork.gradle:gradle-node-plugin:0.12"
     }
+
 }
 
 bootRun {
+    dependsOn("npmInstall")
+    dependsOn("tsc")
     systemProperties = System.properties
 }
 
@@ -22,3 +34,19 @@ dependencies {
 
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
 }
+
+node {
+    nodeModulesDir = file("src/main/resources/static/")
+}
+
+task tscw(type: NpmTask) {
+    args = ['run', 'tscw']
+    workingDir = file("src/main/resources/static/")
+}
+
+task tsc(type: NpmTask) {
+    args = ['run', 'tsc']
+    workingDir = file("src/main/resources/static/")
+}
+
+task runFrontend(dependsOn: [npmInstall, tscw]) {}
