@@ -13,7 +13,7 @@ var login_component_1 = require('../login/login.component');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Main Page CarPooling';
+        this.title = 'CarPooling';
     }
     AppComponent = __decorate([
         core_1.Component({

@@ -7,7 +7,4 @@ import { Router } from '@angular/router-deprecated';
 })
 
 export class LoginPage {
-    constructor(
-        private router: Router
-    ){}
 }

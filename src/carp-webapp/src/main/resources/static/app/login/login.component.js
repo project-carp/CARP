@@ -9,17 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
 var LoginPage = (function () {
-    function LoginPage(router) {
-        this.router = router;
+    function LoginPage() {
     }
     LoginPage = __decorate([
         core_1.Component({
             selector: 'login-tag',
             templateUrl: 'app/login/login.component.html',
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router])
+        __metadata('design:paramtypes', [])
     ], LoginPage);
     return LoginPage;
 }());

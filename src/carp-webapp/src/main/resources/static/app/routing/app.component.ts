@@ -18,5 +18,5 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 ])
 
 export class AppComponent {
-	title = 'Main Page CarPooling';
+	title = 'CarPooling';
 }
