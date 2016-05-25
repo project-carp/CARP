@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexController {
 
     @RequestMapping("/")
-    @ResponseBody
     public String response(){
-        return "HelloWorld!";
+        return "index.html";
     }
 
 }
