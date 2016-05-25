@@ -62,3 +62,6 @@ gradle-app.setting
 
 # Local Git configuration
 .gitconfig
+
+# Angular2
+node_modules/
