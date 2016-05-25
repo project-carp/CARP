@@ -11,7 +11,7 @@ import pl.carp.webapp.CarpApplication;
 import pl.carp.webapp.configuration.EmbeddedTestMongoConfiguration;
 import pl.carp.webapp.model.ApplicationUser;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Simple integration test with Embedded MongoDB instance
