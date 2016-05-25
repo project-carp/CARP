@@ -1,4 +1,4 @@
-package pl.carp.common.verion;
+package pl.carp.common.version;
 
 /**
  * Dummy Version holder

@@ -12,10 +12,11 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 @Configuration
 public class EmbeddedTestMongoConfiguration {
     public static final String DB_NAME = "carp-integration-tests";
+    public static final String FONGO_INSTANCE_NAME = "carp-in-memory-mongo";
 
     @Bean(name = "fongo")
     public Fongo getFongo() {
-        return new Fongo("InMemoryMongo");
+        return new Fongo(FONGO_INSTANCE_NAME);
     }
 
     @Bean(name = "mongo")

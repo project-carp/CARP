@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
-import pl.carp.common.verion.Version;
+import pl.carp.common.version.Version;
 
 /**
  * Simple Spring Boot's main class

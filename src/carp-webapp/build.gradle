@@ -18,8 +18,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb:${springBootVersion}")
-    compile("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
 
+    compile("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
     compile("org.springframework:spring-context:${springVersion}")
     compile("org.springframework:spring-context-support:${springVersion}")
 

@@ -19,7 +19,7 @@ import static junit.framework.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {CarpApplication.class, EmbeddedTestMongoConfiguration.class})
 public class ApplicationUserRepositoryTest {
-    public static final Logger logger = LoggerFactory.getLogger(ApplicationUserRepositoryTest.class);
+    public static final Logger log = LoggerFactory.getLogger(ApplicationUserRepositoryTest.class);
 
     @Autowired
     private ApplicationUserRepository userRepository;
@@ -38,7 +38,7 @@ public class ApplicationUserRepositoryTest {
         assertEquals(user.getUserName(), createdUser.getUserName());
         assertEquals(user.getPassword(), createdUser.getPassword());
 
-        logger.debug("Checked simple Repository.");
+        log.debug("Checked simple Repository.");
     }
 
     @Test
@@ -52,6 +52,6 @@ public class ApplicationUserRepositoryTest {
         assertEquals(user.getUserName(), createdUser.getUserName());
         assertEquals(user.getPassword(), createdUser.getPassword());
 
-        logger.debug("Checked complex Repository.");
+        log.debug("Checked complex Repository.");
     }
 }
