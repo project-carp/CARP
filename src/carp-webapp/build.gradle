@@ -66,3 +66,8 @@ task tsc(type: NpmTask) {
 }
 
 task runFrontend(dependsOn: [npmInstall, tscw]) {}
+
+task cleanAngular(type: Delete) {
+    delete "src/main/resources/static/typings/"
+    delete "src/main/resources/static/node_modules/"
+}
