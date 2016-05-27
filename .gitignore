@@ -65,3 +65,4 @@ gradle-app.setting
 
 # Angular2
 node_modules/
+typings/

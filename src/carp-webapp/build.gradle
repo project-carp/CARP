@@ -1,5 +1,5 @@
 apply plugin: "spring-boot"
-apply plugin: 'com.moowork.node'
+apply plugin: "com.moowork.node"
 
 buildscript {
 
@@ -12,15 +12,9 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath("org.springframework:springloaded:${springLoadedVersion}")
-        classpath "com.moowork.gradle:gradle-node-plugin:0.12"
+        classpath("com.moowork.gradle:gradle-node-plugin:0.12")
     }
 
-}
-
-bootRun {
-    dependsOn("npmInstall")
-    dependsOn("tsc")
-    systemProperties = System.properties
 }
 
 dependencies {
@@ -47,6 +41,14 @@ idea {
         inheritOutputDirs = false
         outputDir = file("$buildDir/classes/main/")
     }
+}
+
+bootRun {
+    dependsOn("npmInstall")
+    dependsOn("tsc")
+    systemProperties = System.properties
+
+    main = 'pl.carp.webapp.CarpApplication'
 }
 
 node {
