@@ -22,6 +22,7 @@ import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.filter.CompositeFilter;
@@ -63,7 +64,7 @@ public class Security extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/login**", "/webjars/**", "/node_modules**").permitAll()
                // .anyRequest().authenticated()
                 .and().exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/"))
-                .and().logout().logoutSuccessUrl("/").permitAll()
+                .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").deleteCookies("JSESSIONID").permitAll()
                 .and().csrf().disable()
                 .addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
 
