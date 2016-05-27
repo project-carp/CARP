@@ -48,6 +48,8 @@ spring:
       enabled: true
   data:
     mongodb:
-      uri: mongodb://localhost:27017
-      database: carp
-      
+      host: ds036789.mlab.com
+      port: 36789
+      database: carp-1
+      username: carp-1
+      password: carp-1123
