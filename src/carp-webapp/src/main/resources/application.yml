@@ -13,6 +13,29 @@ facebook:
   resource:
     userInfoUri: https://graph.facebook.com/me
 
+github:
+  client:
+    clientId: 98ea18cf5ada394e8d6c
+    clientSecret: d46d435e1934867db34d19e03465a79315fa5d7d
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.github.com/user
+
+google:
+  client:
+    clientId: 375620065194-1ff72ocninkemluckjm5m8n6v5napohb.apps.googleusercontent.com
+    clientSecret: UuhRoRun9fjoS6RUl7m5xTK6
+    accessTokenUri: https://accounts.google.com/o/oauth2/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+    clientAuthenticationScheme: query
+    scope: profile email
+  resource:
+    userInfoUri: https://www.googleapis.com/plus/v1/people/me?key=AIzaSyCqYiV5bvDL-4MZM4DTBt-VvcR8OuG-ueg
+    preferTokenInfo: false
+
+
 logging:
   file: log/webapp.log
   level:

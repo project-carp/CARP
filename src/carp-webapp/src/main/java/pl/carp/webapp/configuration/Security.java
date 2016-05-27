@@ -24,6 +24,7 @@ import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.filter.CompositeFilter;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.WebUtils;
 
@@ -35,6 +36,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Maciej Iskra(mais) on 2016-05-27.
@@ -61,19 +64,9 @@ public class Security extends WebSecurityConfigurerAdapter {
                // .anyRequest().authenticated()
                 .and().exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/"))
                 .and().logout().logoutSuccessUrl("/").permitAll()
-                .and().csrf().csrfTokenRepository(csrfTokenRepository())
-                .and().addFilterAfter(csrfHeaderFilter(), CsrfFilter.class)
+                .and().csrf().disable()
                 .addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
 
-//        http.antMatcher("/**")
-//                .authorizeRequests()
-//                .antMatchers("/", "/login**", "/webjars/**", "/node_modules**").permitAll()
-//                .anyRequest().authenticated()
-//                .and().exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/"))
-//                .and().logout().logoutSuccessUrl("/").permitAll()
-//                .and().csrf().csrfTokenRepository(csrfTokenRepository())
-//                .and().addFilterAfter(csrfHeaderFilter(), CsrfFilter.class)
-//                .addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
 
     }
 
@@ -86,49 +79,60 @@ public class Security extends WebSecurityConfigurerAdapter {
         return registration;
     }
 
+    @Bean
+    @ConfigurationProperties("github")
+    ClientResources github() {
+        return new ClientResources();
+    }
+
+    @Bean
+    @ConfigurationProperties("facebook")
+    ClientResources facebook() {
+        return new ClientResources();
+    }
+
+    @Bean
+    @ConfigurationProperties("google")
+    ClientResources google() {
+        return new ClientResources();
+    }
+
     private Filter ssoFilter() {
-        OAuth2ClientAuthenticationProcessingFilter facebookFilter = new OAuth2ClientAuthenticationProcessingFilter("/login/facebook");
-        OAuth2RestTemplate facebookTemplate = new OAuth2RestTemplate(facebook(), oauth2ClientContext);
-        facebookFilter.setRestTemplate(facebookTemplate);
-        facebookFilter.setTokenServices(new UserInfoTokenServices(facebookResource().getUserInfoUri(), facebook().getClientId()));
-        return facebookFilter;
+        CompositeFilter filter = new CompositeFilter();
+        List<Filter> filters = new ArrayList<>();
+        filters.add(ssoFilter(facebook(), "/login/facebook"));
+        filters.add(ssoFilter(github(), "/login/github"));
+        filters.add(ssoFilter(google(), "/login/google"));
+        filter.setFilters(filters);
+        return filter;
     }
 
-    @Bean
-    @ConfigurationProperties("facebook.client")
-    OAuth2ProtectedResourceDetails facebook() {
-        return new AuthorizationCodeResourceDetails();
+    private Filter ssoFilter(ClientResources client, String path) {
+        OAuth2ClientAuthenticationProcessingFilter oAuth2ClientAuthenticationFilter =
+                new OAuth2ClientAuthenticationProcessingFilter(path);
+        OAuth2RestTemplate oAuth2RestTemplate = new OAuth2RestTemplate(client.getClient(),
+                oauth2ClientContext);
+        oAuth2ClientAuthenticationFilter.setRestTemplate(oAuth2RestTemplate);
+        UserInfoTokenServices tokenServices = new UserInfoTokenServices(
+                client.getResource().getUserInfoUri(), client.getClient().getClientId());
+        tokenServices.setRestTemplate(oAuth2RestTemplate);
+        oAuth2ClientAuthenticationFilter.setTokenServices(tokenServices);
+        return oAuth2ClientAuthenticationFilter;
     }
 
-    @Bean
-    @ConfigurationProperties("facebook.resource")
-    ResourceServerProperties facebookResource() {
-        return new ResourceServerProperties();
+
+
+}
+
+class ClientResources {
+    private OAuth2ProtectedResourceDetails client = new AuthorizationCodeResourceDetails();
+    private ResourceServerProperties resource = new ResourceServerProperties();
+
+    public OAuth2ProtectedResourceDetails getClient() {
+        return client;
     }
 
-    private Filter csrfHeaderFilter() {
-        return new OncePerRequestFilter() {
-            @Override
-            protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
-                                            FilterChain filterChain) throws ServletException, IOException {
-                CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
-                if (csrf != null) {
-                    Cookie cookie = WebUtils.getCookie(request, "XSRF-TOKEN");
-                    String token = csrf.getToken();
-                    if (cookie == null || token != null && !token.equals(cookie.getValue())) {
-                        cookie = new Cookie("XSRF-TOKEN", token);
-                        cookie.setPath("/");
-                        response.addCookie(cookie);
-                    }
-                }
-                filterChain.doFilter(request, response);
-            }
-        };
-    }
-
-    private CsrfTokenRepository csrfTokenRepository() {
-        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
-        repository.setHeaderName("X-XSRF-TOKEN");
-        return repository;
+    public ResourceServerProperties getResource() {
+        return resource;
     }
 }
