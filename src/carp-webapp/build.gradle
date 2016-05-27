@@ -35,9 +35,15 @@ dependencies {
     compile("org.springframework:spring-context:${springVersion}")
     compile("org.springframework:spring-context-support:${springVersion}")
 
+    compile("org.springframework:spring-context-support:${springVersion}")
+    compile("org.springframework.security.oauth:spring-security-oauth2")
+
+
     compile("org.mongodb:mongo-java-driver:3.2.2")
 
-    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+    testCompile("org.springframework.boot:spring-boot-starter-security:${springBootVersion}")
+
+
     testCompile("com.github.fakemongo:fongo:2.0.6")
 }
 
