@@ -1,3 +1,14 @@
-dependencies {
+buildscript {
+    dependencies {
+        classpath("gradle.plugin.de.fuerstenau:BuildConfigPlugin:1.1.4")
+    }
+}
 
+apply plugin: "de.fuerstenau.buildconfig"
+
+// Version class configuration
+buildConfig {
+    appName = "carp"
+    packageName = "pl.carp.common.version"
+    clsName = "Version"
 }

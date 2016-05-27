@@ -1,6 +1,6 @@
 allprojects {
     group = "pl.carp"
-    version = "0.1"
+    version = "0.1.0"
 }
 
 ext {
@@ -26,6 +26,10 @@ subprojects {
         repositories {
             mavenCentral()
             jcenter()
+
+            maven {
+                url "https://plugins.gradle.org/m2/"
+            }
         }
     }
 

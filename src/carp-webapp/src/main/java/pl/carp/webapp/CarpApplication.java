@@ -16,7 +16,7 @@ public class CarpApplication {
     private static final Logger logger = LoggerFactory.getLogger(CarpApplication.class);
 
     public static void main(String... args) {
-        logger.info("Carp Application '{}' is starting...", Version.getVersion());
+        logger.info("Carp Application '{}' is starting...", Version.VERSION);
 
         ConfigurableApplicationContext context = SpringApplication.run(CarpApplication.class, args);
         DispatcherServlet dispatcherServlet = (DispatcherServlet) context.getBean("dispatcherServlet");
