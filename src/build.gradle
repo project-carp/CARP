@@ -21,6 +21,7 @@ subprojects {
 
         dependencies {
             classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+            classpath("org.springframework:springloaded:${springLoadedVersion}")
         }
 
         repositories {
@@ -43,6 +44,14 @@ subprojects {
     dependencies {
         testCompile "junit:junit:4+"
     }
+
+    idea {
+        module {
+            inheritOutputDirs = false
+            outputDir = file("$buildDir/classes/main")
+        }
+    }
+
 }
 
 task wrapper(type: Wrapper) {

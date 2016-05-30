@@ -64,7 +64,9 @@ gradle-app.setting
 .gitconfig
 
 # Angular2
-typings
+node_modules/
+typings/
+typings/typings
 node_modules
 jspm_packages
 bower_components

@@ -1,5 +1,6 @@
 apply plugin: "spring-boot"
 apply plugin: "com.moowork.node"
+apply plugin: "application"
 
 buildscript {
 
