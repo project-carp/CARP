@@ -69,3 +69,8 @@ task cleanAngular(type: Delete) {
     delete "src/main/resources/static/typings/"
     delete "src/main/resources/static/node_modules/"
 }
+
+task stage{
+    dependsOn("npmInstall")
+    dependsOn("tsc")
+}
