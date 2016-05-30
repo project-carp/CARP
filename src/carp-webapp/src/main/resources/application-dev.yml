@@ -1,0 +1,32 @@
+server:
+  port: 38080
+
+facebook:
+  client:
+    clientId: 233668646673605
+    clientSecret: 33b17e044ee6a4fa383f46ec6e28ea1d
+    accessTokenUri: https://graph.facebook.com/oauth/access_token
+    userAuthorizationUri: https://www.facebook.com/dialog/oauth
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://graph.facebook.com/me
+
+logging:
+  file: log/webapp.log
+  level:
+    org.springframework.security: DEBUG
+    logging.level.pl.carp: DEBUG
+
+spring:
+  resources:
+    chain:
+      enabled: true
+  data:
+    mongodb:
+      host: 192.168.99.100
+      port: 27017
+      database: carp
+      username:
+      password:

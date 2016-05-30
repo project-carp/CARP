@@ -1,19 +1,13 @@
 apply plugin: "spring-boot"
-apply plugin: 'com.moowork.node'
+apply plugin: "com.moowork.node"
 apply plugin: "application"
 
 buildscript {
 
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath("org.springframework:springloaded:${springLoadedVersion}")
-        classpath "com.moowork.gradle:gradle-node-plugin:0.12"
+        classpath("com.moowork.gradle:gradle-node-plugin:0.12")
     }
 
 }
@@ -24,11 +18,27 @@ dependencies {
 
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb:${springBootVersion}")
 
+    compile("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
     compile("org.springframework:spring-context:${springVersion}")
     compile("org.springframework:spring-context-support:${springVersion}")
 
+    compile("org.springframework.boot:spring-boot-starter-security:${springBootVersion}")
+    compile("org.springframework.security.oauth:spring-security-oauth2")
+
+    compile("org.mongodb:mongo-java-driver:3.2.2")
+
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+    testCompile("com.github.fakemongo:fongo:2.0.6")
+}
+
+// Specific configuration for the Spring Loaded hot swap features
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+    }
 }
 
 bootRun {
@@ -54,3 +64,8 @@ task tsc(type: NpmTask) {
 }
 
 task runFrontend(dependsOn: [npmInstall, tscw]) {}
+
+task cleanAngular(type: Delete) {
+    delete "src/main/resources/static/typings/"
+    delete "src/main/resources/static/node_modules/"
+}

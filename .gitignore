@@ -66,3 +66,7 @@ gradle-app.setting
 # Angular2
 node_modules/
 typings/
+typings/typings
+node_modules
+jspm_packages
+bower_components
