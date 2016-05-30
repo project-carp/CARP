@@ -1,6 +1,13 @@
 server:
   port: 18080
 
+mongo_configuration: &mongo_configuration
+  host: ds036789.mlab.com
+  port: 36789
+  database: carp-1
+  username: carp-1
+  password: carp-1123
+
 facebook:
   client:
     clientId: 125986124484897
@@ -48,8 +55,8 @@ spring:
       enabled: true
   data:
     mongodb:
-      host: ds036789.mlab.com
-      port: 36789
-      database: carp-1
-      username: carp-1
-      password: carp-1123
+      <<: *mongo_configuration
+
+mongeez:
+  enabled: false
+  <<: *mongo_configuration
