@@ -8,4 +8,6 @@ branches:
     - master
     - develop
 
-before_install: cd src
+before_install: 
+    - cd src
+    - chmod +x gradlew
