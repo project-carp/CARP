@@ -2,13 +2,16 @@ language: java
 
 jdk:
     - oraclejdk8
-    
+
 branches:
   only:
     - master
     - develop
- 
+
 env:
   global:
     - REPO="project-carp/CARP"
     - CI_HOME=`pwd`/$REPO/src
+
+before_install:
+    - pwd
