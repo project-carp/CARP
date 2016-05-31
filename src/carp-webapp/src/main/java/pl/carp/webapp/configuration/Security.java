@@ -7,8 +7,13 @@ import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationDetailsSource;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticationProcessingFilter;
@@ -22,6 +27,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.filter.CompositeFilter;
+import pl.carp.webapp.model.ApplicationUser;
 
 import javax.servlet.Filter;
 import java.security.Principal;
@@ -37,8 +43,15 @@ import java.util.List;
 //@EnableWebSecurity
 public class Security extends WebSecurityConfigurerAdapter {
 
+
     @Autowired
     OAuth2ClientContext oauth2ClientContext;
+
+    @Autowired
+    private CarpAuthenticationProvider carpAuthenticationProvider;
+
+    @Autowired
+    private CarpAuthenticationHandler carpAuthenticationHandler;
 
     @RequestMapping("/user")
     public Principal user(Principal principal) {
@@ -51,13 +64,22 @@ public class Security extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/login**", "/webjars/**", "/node_modules**").permitAll()
-               // .anyRequest().authenticated()
+                // .anyRequest().authenticated()
                 .and().exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/"))
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").deleteCookies("JSESSIONID").permitAll()
                 .and().csrf().disable()
-                .addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
+                .addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class)
 
+                .formLogin()
+                .successHandler(carpAuthenticationHandler)
+                .failureHandler(carpAuthenticationHandler)
+                .authenticationDetailsSource(new CarpUserDetailsService())
+                .loginPage("/login/carp").usernameParameter("email").passwordParameter("password");
+    }
 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(carpAuthenticationProvider);
     }
 
     @Bean
@@ -94,22 +116,22 @@ public class Security extends WebSecurityConfigurerAdapter {
         filters.add(ssoFilter(github(), "/login/github"));
         filters.add(ssoFilter(google(), "/login/google"));
         filter.setFilters(filters);
+
         return filter;
     }
 
     private Filter ssoFilter(ClientResources client, String path) {
-        OAuth2ClientAuthenticationProcessingFilter oAuth2ClientAuthenticationFilter =
-                new OAuth2ClientAuthenticationProcessingFilter(path);
-        OAuth2RestTemplate oAuth2RestTemplate = new OAuth2RestTemplate(client.getClient(),
-                oauth2ClientContext);
+        OAuth2ClientAuthenticationProcessingFilter oAuth2ClientAuthenticationFilter = new OAuth2ClientAuthenticationProcessingFilter(path);
+        OAuth2RestTemplate oAuth2RestTemplate = new OAuth2RestTemplate(client.getClient(), oauth2ClientContext);
         oAuth2ClientAuthenticationFilter.setRestTemplate(oAuth2RestTemplate);
-        UserInfoTokenServices tokenServices = new UserInfoTokenServices(
-                client.getResource().getUserInfoUri(), client.getClient().getClientId());
+        UserInfoTokenServices tokenServices = new UserInfoTokenServices(client.getResource().getUserInfoUri(), client.getClient().getClientId());
         tokenServices.setRestTemplate(oAuth2RestTemplate);
         oAuth2ClientAuthenticationFilter.setTokenServices(tokenServices);
+        oAuth2ClientAuthenticationFilter.setAuthenticationSuccessHandler(carpAuthenticationHandler);
+        oAuth2ClientAuthenticationFilter.setAuthenticationFailureHandler(carpAuthenticationHandler);
+        oAuth2ClientAuthenticationFilter.setAuthenticationDetailsSource(new CarpUserDetailsService());
         return oAuth2ClientAuthenticationFilter;
     }
-
 
 
 }
@@ -126,3 +148,15 @@ class ClientResources {
         return resource;
     }
 }
+
+class CarpUserDetailsService implements AuthenticationDetailsSource {
+
+    @Override
+    public Object buildDetails(Object context) {
+        return new ApplicationUser();
+    }
+}
+
+
+
+
