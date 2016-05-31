@@ -1,0 +1,11 @@
+<mongoChangeLog>
+
+    <changeSet changeId="2__initial_indexes" author="lkra">
+
+        <script>
+            db.users.createIndex({"userName": 1}, {unique: true})
+        </script>
+
+    </changeSet>
+
+</mongoChangeLog>
