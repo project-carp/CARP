@@ -1,9 +1,8 @@
 <nav>
-    <a href="/login/facebook">Zaloguj przez facebook'a!</a>
-    <a href="/login/github">Zaloguj przez github'a!</a>
-    <a href="/login/google">Zaloguj przez google'a!</a>
-    <a href="/logout" >Wyloguj</a>
-
-
+    <a [routerLink]="['/login/facebook']">Zaloguj przez facebook'a!</a>
+    <a [routerLink]="['/login/github']">Zaloguj przez github'a!</a>
+    <a [routerLink]="['/login/google']">Zaloguj przez google'a!</a>
+    <a [routerLink]="['/logout']" >Wyloguj</a>
 </nav>
-<a href="/user/">Tutaj są Twoje dane ;p (jak jesteś zalogowany)</a>
+
+<a [routerLink]="['/user/']">Tutaj są Twoje dane ;p (jak jesteś zalogowany)</a>

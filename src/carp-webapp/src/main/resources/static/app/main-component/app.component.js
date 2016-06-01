@@ -9,27 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var login_component_1 = require('../login/login.component');
-var router_deprecated_1 = require('@angular/router-deprecated');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(router) {
+        this.router = router;
         this.title = 'Main Page CarPooling';
     }
     AppComponent = __decorate([
         core_1.Component({
-            selector: 'main-tag',
-            templateUrl: 'app/routing/main.component.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
-            providers: [router_deprecated_1.ROUTER_PROVIDERS]
+            selector: 'my-app',
+            templateUrl: 'app/main-component/main.component.html',
+            directives: [router_1.ROUTER_DIRECTIVES]
         }),
-        router_deprecated_1.RouteConfig([
-            {
-                path: '/loginPage',
-                name: 'LoginPage',
-                component: login_component_1.LoginPage,
-            },
+        router_1.Routes([
+            { path: '/loginPage', component: login_component_1.LoginPage }
         ]), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], AppComponent);
     return AppComponent;
 }());
