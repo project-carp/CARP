@@ -10,16 +10,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var http_1 = require('@angular/http');
+var headers_1 = require('../common/headers');
 var LoginPage = (function () {
-    function LoginPage(router) {
+    function LoginPage(router, http) {
         this.router = router;
+        this.http = http;
     }
+    LoginPage.prototype.login = function (event, email, password) {
+        var _this = this;
+        event.preventDefault();
+        var body = JSON.stringify({ email: email, password: password });
+        this.http.post('http://localhost:18080/login/carp', body, { headers: headers_1.contentHeaders })
+            .subscribe(function (response) {
+            _this.router.parent.navigateByUrl('/homePage');
+        }, function (error) {
+            alert(error.text());
+            console.log(error.text());
+        });
+    };
     LoginPage = __decorate([
         core_1.Component({
             selector: 'login-tag',
             templateUrl: 'app/login/login.component.html',
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router])
+        __metadata('design:paramtypes', [router_deprecated_1.Router, http_1.Http])
     ], LoginPage);
     return LoginPage;
 }());
