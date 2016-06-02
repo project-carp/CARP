@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Routes, Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 import { LoginPage } from '../login/login.component';
+import { HomePage } from '../home/home.component';
 
 @Component({
   selector: 'my-app',
@@ -9,9 +10,9 @@ import { LoginPage } from '../login/login.component';
   directives: [ROUTER_DIRECTIVES]
 })
 
-
 @Routes([
-  {path: '/loginPage', component: LoginPage}
+  {path: '/loginPage', component: LoginPage},
+  {path: '/homePage', component: HomePage}
 ])
 
 

@@ -9,27 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var login_component_1 = require('../login/login.component');
-var home_component_1 = require('../home/home.component');
-var AppComponent = (function () {
-    function AppComponent(router) {
+var router_deprecated_1 = require('@angular/router-deprecated');
+var HomePage = (function () {
+    function HomePage(router) {
         this.router = router;
-        this.title = 'Main Page CarPooling';
     }
-    AppComponent = __decorate([
+    HomePage = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/main-component/main.component.html',
-            directives: [router_1.ROUTER_DIRECTIVES]
-        }),
-        router_1.Routes([
-            { path: '/loginPage', component: login_component_1.LoginPage },
-            { path: '/homePage', component: home_component_1.HomePage }
-        ]), 
-        __metadata('design:paramtypes', [router_1.Router])
-    ], AppComponent);
-    return AppComponent;
+            selector: 'home-tag',
+            templateUrl: 'app/home/home.component.html',
+        }), 
+        __metadata('design:paramtypes', [router_deprecated_1.Router])
+    ], HomePage);
+    return HomePage;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.HomePage = HomePage;
+//# sourceMappingURL=home.component.js.map

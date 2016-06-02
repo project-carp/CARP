@@ -31,6 +31,7 @@ dependencies {
     compile("io.github.hzpz.spring.boot:mongeez-spring-boot-starter:1.2.0")
 
     compile("org.mongodb:mongo-java-driver:3.2.2")
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.6.2'
 
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
     testCompile("com.github.fakemongo:fongo:2.0.6")

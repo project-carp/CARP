@@ -10,16 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var http_1 = require('@angular/http');
+var headers_1 = require('../common/headers');
 var LoginPage = (function () {
-    function LoginPage() {
+    function LoginPage(router, http) {
+        this.router = router;
+        this.http = http;
     }
+    LoginPage.prototype.login = function (event, email, password) {
+        var _this = this;
+        event.preventDefault();
+        var body = JSON.stringify({ email: email, password: password });
+        this.http.post('http://localhost:18080/login/carp', body, { headers: headers_1.contentHeaders })
+            .subscribe(function (response) {
+            _this.router.navigateByUrl('/homePage');
+        }, function (error) {
+            alert(error.text());
+            console.log(error.text());
+        });
+    };
     LoginPage = __decorate([
         core_1.Component({
             selector: 'login-tag',
             templateUrl: 'app/login/login.component.html',
-            directives: [router_1.ROUTER_DIRECTIVES]
+            directives: [router_1.ROUTER_DIRECTIVES],
+            providers: [http_1.HTTP_PROVIDERS]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router, http_1.Http])
     ], LoginPage);
     return LoginPage;
 }());
