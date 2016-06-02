@@ -18,12 +18,12 @@ var LoginPage = (function () {
         this.http = http;
     }
     LoginPage.prototype.login = function (event, email, password) {
-        var _this = this;
         event.preventDefault();
         var body = JSON.stringify({ email: email, password: password });
         this.http.post('http://localhost:18080/login/carp', body, { headers: headers_1.contentHeaders })
             .subscribe(function (response) {
-            _this.router.navigateByUrl('/homePage');
+            console.log(response);
+            /*this.router.navigate([`/homePage`]);*/
         }, function (error) {
             alert(error.text());
             console.log(error.text());

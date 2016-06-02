@@ -12,6 +12,8 @@ import { contentHeaders } from '../common/headers';
     providers: [HTTP_PROVIDERS]
 })
 
+
+
 export class LoginPage {
 
     constructor(public router: Router, public http: Http) {
@@ -23,7 +25,8 @@ export class LoginPage {
         this.http.post('http://localhost:18080/login/carp', body, { headers: contentHeaders })
             .subscribe(
                 response => {
-                    this.router.navigateByUrl('/homePage');
+                    console.log(response);
+                    /*this.router.navigate([`/homePage`]);*/
                 },
                 error => {
                     alert(error.text());
