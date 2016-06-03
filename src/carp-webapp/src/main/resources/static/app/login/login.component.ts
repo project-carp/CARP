@@ -1,14 +1,21 @@
 import { Component } from '@angular/core'
-import { Router } from '@angular/router-deprecated';
-import { Http } from '@angular/http';
+
+import { Router, Routes, ROUTER_DIRECTIVES } from '@angular/router';
+import { Http, HTTP_PROVIDERS } from '@angular/http';
 import { contentHeaders } from '../common/headers';
+
 
 @Component({
     selector: 'login-tag',
     templateUrl: 'app/login/login.component.html',
+    directives: [ROUTER_DIRECTIVES],
+    providers: [HTTP_PROVIDERS]
 })
 
+
+
 export class LoginPage {
+
     constructor(public router: Router, public http: Http) {
     }
 
@@ -18,7 +25,8 @@ export class LoginPage {
         this.http.post('http://localhost:18080/login/carp', body, { headers: contentHeaders })
             .subscribe(
                 response => {
-                    this.router.parent.navigateByUrl('/homePage');
+                    console.log(response);
+                    this.router.navigate([`/homePage`]);
                 },
                 error => {
                     alert(error.text());

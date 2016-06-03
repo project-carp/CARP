@@ -1,4 +1,13 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { AppComponent } from './routing/app.component';
+import { provide } from '@angular/core';
+import { ROUTER_PROVIDERS } from '@angular/router';
+import { LocationStrategy, Location, HashLocationStrategy } from '@angular/common';
 
-bootstrap(AppComponent);
+import { AppComponent } from './main-component/app.component';
+
+bootstrap(AppComponent, [
+ ROUTER_PROVIDERS,
+ provide(LocationStrategy, {useClass: HashLocationStrategy})
+]);
+
+
