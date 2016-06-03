@@ -26,7 +26,7 @@ export class LoginPage {
             .subscribe(
                 response => {
                     console.log(response);
-                    /*this.router.navigate([`/homePage`]);*/
+                    this.router.navigate([`/homePage`]);
                 },
                 error => {
                     alert(error.text());
