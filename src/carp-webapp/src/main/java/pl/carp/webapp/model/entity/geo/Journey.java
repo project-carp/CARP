@@ -1,7 +1,7 @@
 package pl.carp.webapp.model.entity.geo;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
+import org.springframework.data.geo.Point;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -19,21 +19,13 @@ public class Journey {
 
     private String description;
 
-    /**
-     * {@code routeCoordinateList} is a {@link java.util.List} of geographic coordinates stored in GeoJSON format.
-     * <p>
-     * <pre>
-     * <code>
-     * {
-     *   "type" : "Point",
-     *   "coordinates" : [ x, y ]
-     * }
-     * </code>
-     * </pre>
-     */
-    private List<GeoJsonPoint> routeCoordinateList;
+    private List<Point> routeCoordinateList; // consider using GeoJsonPoint class
 
     /* --- Getters & Setters --- */
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getId() {
         return id;
@@ -55,11 +47,11 @@ public class Journey {
         this.description = description;
     }
 
-    public List<GeoJsonPoint> getRouteCoordinateList() {
+    public List<Point> getRouteCoordinateList() {
         return routeCoordinateList;
     }
 
-    public void setRouteCoordinateList(List<GeoJsonPoint> routeCoordinateList) {
+    public void setRouteCoordinateList(List<Point> routeCoordinateList) {
         this.routeCoordinateList = routeCoordinateList;
     }
 }
