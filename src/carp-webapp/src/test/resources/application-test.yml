@@ -1,0 +1,11 @@
+server:
+  port: 98080
+
+mongeez:
+  enabled: false
+
+logging:
+  file: log/webapp-test.log
+  level:
+    org.springframework.security: INFO
+    logging.level.pl.carp: DEBUG

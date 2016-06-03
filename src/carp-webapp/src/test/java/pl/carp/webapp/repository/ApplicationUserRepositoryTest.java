@@ -7,9 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import pl.carp.webapp.CarpApplication;
-import pl.carp.webapp.configuration.EmbeddedTestMongoConfiguration;
+import pl.carp.webapp.configuration.TestRepositoryConfiguration;
+import pl.carp.webapp.configuration.annotation.DefaultTest;
 import pl.carp.webapp.model.ApplicationUser;
 
 import static org.junit.Assert.assertEquals;
@@ -18,8 +17,8 @@ import static org.junit.Assert.assertEquals;
  * Simple integration test with Embedded MongoDB instance
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {CarpApplication.class, EmbeddedTestMongoConfiguration.class})
-@WebAppConfiguration
+@SpringApplicationConfiguration(classes = TestRepositoryConfiguration.class)
+@DefaultTest
 public class ApplicationUserRepositoryTest {
     public static final Logger log = LoggerFactory.getLogger(ApplicationUserRepositoryTest.class);
 

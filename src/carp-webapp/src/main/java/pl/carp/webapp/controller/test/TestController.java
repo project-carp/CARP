@@ -3,14 +3,18 @@ package pl.carp.webapp.controller.test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.geo.Point;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pl.carp.webapp.model.ApplicationUser;
+import pl.carp.webapp.model.entity.geo.Journey;
 import pl.carp.webapp.repository.ApplicationUserComplexRepository;
 import pl.carp.webapp.repository.ApplicationUserRepository;
+import pl.carp.webapp.repository.geo.JourneyRepository;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,6 +30,9 @@ public class TestController {
 
     @Autowired
     private ApplicationUserComplexRepository userComplexRepository;
+
+    @Autowired
+    private JourneyRepository journeyRepository;
 
     @RequestMapping("/user")
     public ApplicationUser getUser(@RequestParam(value = "username", defaultValue = "testUser") String userName) {
@@ -60,5 +67,32 @@ public class TestController {
             log.debug("Unfortunately there is not a user with given name...");
             return null;
         }
+    }
+
+    @RequestMapping("/journeys/save")
+    public String saveJourneys() {
+        Journey journey = new Journey();
+        journey.setUserName("user");
+        journey.setDescription("description");
+        journey.setRouteCoordinateList(
+                Arrays.asList(new Point(33, 44),
+                        new Point(44, 55),
+                        new Point(55, 66),
+                        new Point(66, 77),
+                        new Point(77, 88),
+                        new Point(88, 99)));
+        try {
+            journeyRepository.save(journey);
+            return "ok";
+        } catch (Exception e) {
+            log.error("Error!", e);
+            return "not_ok";
+        }
+    }
+
+    @RequestMapping("/journeys/find")
+    public List<Journey> getJourneys() {
+
+        return journeyRepository.findAll();
     }
 }
