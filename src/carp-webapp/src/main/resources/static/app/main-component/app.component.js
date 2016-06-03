@@ -10,7 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var login_component_1 = require('../login/login.component');
+var login_component_1 = require('../authentication/login/login.component');
+var register_component_1 = require('../authentication/register/register.component');
 var home_component_1 = require('../home/home.component');
 var AppComponent = (function () {
     function AppComponent(router) {
@@ -25,7 +26,8 @@ var AppComponent = (function () {
         }),
         router_1.Routes([
             { path: '/loginPage', component: login_component_1.LoginPage },
-            { path: '/homePage', component: home_component_1.HomePage }
+            { path: '/homePage', component: home_component_1.HomePage },
+            { path: '/registrationPage', component: register_component_1.RegisterPage }
         ]), 
         __metadata('design:paramtypes', [router_1.Router])
     ], AppComponent);

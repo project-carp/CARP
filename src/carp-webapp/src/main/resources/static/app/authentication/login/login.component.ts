@@ -1,15 +1,14 @@
 import { Component } from '@angular/core'
 
 import { Router, Routes, ROUTER_DIRECTIVES } from '@angular/router';
-import { Http, HTTP_PROVIDERS } from '@angular/http';
-import { contentHeaders } from '../common/headers';
+import { Http } from '@angular/http';
+import { contentHeaders } from '../../common/headers';
 
 
 @Component({
     selector: 'login-tag',
-    templateUrl: 'app/login/login.component.html',
-    directives: [ROUTER_DIRECTIVES],
-    providers: [HTTP_PROVIDERS]
+    templateUrl: 'app/authentication/login/login.component.html',
+    directives: [ROUTER_DIRECTIVES]
 })
 
 

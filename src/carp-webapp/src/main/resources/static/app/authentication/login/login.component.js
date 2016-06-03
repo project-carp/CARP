@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
-var headers_1 = require('../common/headers');
+var headers_1 = require('../../common/headers');
 var LoginPage = (function () {
     function LoginPage(router, http) {
         this.router = router;
@@ -33,9 +33,8 @@ var LoginPage = (function () {
     LoginPage = __decorate([
         core_1.Component({
             selector: 'login-tag',
-            templateUrl: 'app/login/login.component.html',
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [http_1.HTTP_PROVIDERS]
+            templateUrl: 'app/authentication/login/login.component.html',
+            directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [router_1.Router, http_1.Http])
     ], LoginPage);
