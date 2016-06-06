@@ -1,4 +1,4 @@
-<div>
+<!--<div>
     <h1>Registration</h1>
     <form role="form">
         <div class="form-group">
@@ -11,5 +11,32 @@
         </div>
         <button class="btn btn-primary" type="button" (click)="addNerUser(email.value, password.value)">Register</button>
     </form>
-</div>
+</div>-->
 
+
+<div id="signin-wraper">
+
+    <div class="signin-logo">
+        <h1>LOGO</h1>
+    </div>
+
+    <div class="signin-logo">
+        <h1>Register in CARP</h1>
+    </div>
+
+    <form id="form" role="form" (submit)="login($event, username.value, password.value)">
+            <span class="input-group">
+                <h1 style="font-size: 20px">Fill register input form</h1>
+            </span>
+            <span class="input-group">
+              <input #email type="text" class="form-control" id="email" placeholder="E-mail">
+            </span>
+            <span class="input-group">
+               <input #password type="password" class="form-control" id="password" placeholder="Password">
+            </span>
+            <span class="input-group">
+               <button class="btn btn-primary" type="button"
+                       (click)="addNerUser(email.value, password.value)">Register</button>
+            </span>
+    </form>
+</div>
