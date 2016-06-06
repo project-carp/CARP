@@ -15,12 +15,13 @@ var headers_1 = require('../../common/headers');
 var RegisterService = (function () {
     function RegisterService(http) {
         this.http = http;
-        this.registrationUrl = 'app/registration';
+        this.registrationUrl = 'http://localhost:18080/rest';
     }
     RegisterService.prototype.registerNewUser = function (user) {
         var body = JSON.stringify({ user: user });
+        var url = this.registrationUrl + '/register';
         return this.http
-            .post(this.registrationUrl, body, { headers: headers_1.contentHeaders })
+            .post(url, body, { headers: headers_1.contentHeaders })
             .toPromise()
             .then(function (response) { return response.json().data; })
             .catch(this.handleError);

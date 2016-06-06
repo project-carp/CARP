@@ -1,7 +1,7 @@
 "use strict";
 var User = (function () {
     function User(email, password) {
-        this.email = email;
+        this.userName = email;
         this.password = password;
     }
     return User;

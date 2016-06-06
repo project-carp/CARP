@@ -14,16 +14,17 @@ export class RegisterService{
     email: string;
 
 
-    private registrationUrl = 'app/registration';
+    private registrationUrl = 'http://localhost:18080/rest';
 
     constructor(private http: Http){}
 
 
     registerNewUser(user: User): Promise<User> {
         let body = JSON.stringify({ user });
+        let url = this.registrationUrl + '/register';
 
         return this.http
-                   .post(this.registrationUrl, body, { headers: contentHeaders })
+                   .post(url, body, { headers: contentHeaders })
                    .toPromise()
                    .then(response => response.json().data)
                    .catch(this.handleError);
