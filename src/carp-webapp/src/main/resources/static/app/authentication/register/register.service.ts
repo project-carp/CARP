@@ -8,7 +8,6 @@ import { AppSettings } from '../../configuration/app-settings/app.settings'
 import {User} from '../user';
 
 
-
 @Injectable()
 export class RegisterService{
     email: string;
@@ -16,7 +15,7 @@ export class RegisterService{
     constructor(private http: Http){}
 
     registerNewUser(user: User): Promise<User> {
-        let body = JSON.stringify({ userName:user.userName, password: user.password });
+        let body = JSON.stringify({ userName:user.userName, password:Md5.hashStr(user.password) });
         let url = `${AppSettings.API_ENDPOINT}/register`;
 
         return this.http

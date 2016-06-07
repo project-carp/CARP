@@ -18,7 +18,7 @@ var RegisterService = (function () {
         this.http = http;
     }
     RegisterService.prototype.registerNewUser = function (user) {
-        var body = JSON.stringify({ userName: user.userName, password: user.password });
+        var body = JSON.stringify({ userName: user.userName, password: Md5.hashStr(user.password) });
         var url = app_settings_1.AppSettings.API_ENDPOINT + "/register";
         return this.http
             .post(url, body, { headers: headers_1.contentHeaders })

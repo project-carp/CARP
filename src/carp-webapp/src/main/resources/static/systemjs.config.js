@@ -33,7 +33,7 @@
   });
   var config = {
     map: map,
-    packages: packages
+    packages: packages,
   }
   System.config(config);
 })(this);
