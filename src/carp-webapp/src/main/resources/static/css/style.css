@@ -10,6 +10,16 @@ Custom .css for bar on left of page
 
 /* Toggle Styles */
 
+.loading-message{
+    color: #F6F6F6;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.sk-wave .sk-rect{
+    background-color: #ffffff;
+}
+
 a:active,
 a:hover,
 a:focus {
@@ -180,13 +190,14 @@ Custom .css for bar on top of page
 .icon-menu {
     left: -7px !important;
     position: absolute;
-    font-size: 22px;
+    font-size: 25px;
     padding-top: 10px;
 }
 
 .navbar-brand{
     padding-left: 50px !important;
     font-size: 30px !important;
+    padding: 5px 0px 0px 60px!important;
 }
 
 .navbar-inverse {
