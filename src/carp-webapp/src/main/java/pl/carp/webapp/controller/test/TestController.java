@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.carp.webapp.model.ApplicationUser;
+import pl.carp.webapp.model.entity.ApplicationUser;
 import pl.carp.webapp.model.entity.geo.Journey;
 import pl.carp.webapp.repository.ApplicationUserComplexRepository;
 import pl.carp.webapp.repository.ApplicationUserRepository;

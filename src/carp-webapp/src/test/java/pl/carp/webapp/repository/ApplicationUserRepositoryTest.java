@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import pl.carp.webapp.base.BaseRepositoryTest;
 import pl.carp.webapp.configuration.TestRepositoryConfiguration;
 import pl.carp.webapp.configuration.annotation.DefaultTest;
-import pl.carp.webapp.model.ApplicationUser;
+import pl.carp.webapp.model.entity.ApplicationUser;
 
 import static org.junit.Assert.assertEquals;
 

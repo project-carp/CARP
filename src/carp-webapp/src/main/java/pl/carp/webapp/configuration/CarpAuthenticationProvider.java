@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import pl.carp.webapp.model.ApplicationUser;
+import pl.carp.webapp.model.entity.ApplicationUser;
 
 import java.util.Arrays;
 import java.util.List;

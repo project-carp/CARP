@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import pl.carp.webapp.model.ApplicationUser;
+import pl.carp.webapp.model.entity.ApplicationUser;
 import pl.carp.webapp.model.rest.user.RestResponse;
 
 /**

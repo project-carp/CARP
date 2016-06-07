@@ -3,7 +3,7 @@ package pl.carp.webapp.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
-import pl.carp.webapp.model.ApplicationUser;
+import pl.carp.webapp.model.entity.ApplicationUser;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;

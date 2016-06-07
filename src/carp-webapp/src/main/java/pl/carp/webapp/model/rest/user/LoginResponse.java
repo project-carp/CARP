@@ -1,6 +1,6 @@
 package pl.carp.webapp.model.rest.user;
 
-import pl.carp.webapp.model.ApplicationUser;
+import pl.carp.webapp.model.entity.ApplicationUser;
 import pl.carp.webapp.model.enums.LoginResult;
 
 import java.io.Serializable;

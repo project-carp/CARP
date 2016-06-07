@@ -1,7 +1,7 @@
 package pl.carp.webapp.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import pl.carp.webapp.model.ApplicationUser;
+import pl.carp.webapp.model.entity.ApplicationUser;
 
 /**
  * Very simple MongoDB CRUD repository featured by Spring Data

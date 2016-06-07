@@ -1,4 +1,4 @@
-package pl.carp.webapp.model;
+package pl.carp.webapp.model.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
