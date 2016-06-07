@@ -347,3 +347,7 @@ Login page styles
 {
     background-color: #d95333;
 }
+
+.logout-message {
+    text-align: center;
+}

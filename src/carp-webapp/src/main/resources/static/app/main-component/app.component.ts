@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Routes, Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 import { LoginPage } from '../authentication/login/login.component';
+import { LogoutPage } from '../authentication/logout/logout.component';
 import { RegisterPage } from '../authentication/register/register.component';
 import { HomePage } from '../home/home.component';
 
@@ -14,7 +15,8 @@ import { HomePage } from '../home/home.component';
 @Routes([
   {path: '/loginPage', component: LoginPage},
   {path: '/homePage', component: HomePage},
-  {path: '/registrationPage', component: RegisterPage}
+  {path: '/registrationPage', component: RegisterPage},
+  {path: '/logoutPage', component: LogoutPage}
 ])
 
 
