@@ -6,15 +6,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- CSS -->
     <link href="css/fontello.css" rel="stylesheet" type="text/css" />
+    <link href="node_modules/please-wait/build/please-wait.css" rel="stylesheet">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="node_modules/spinkit/css/spinkit.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- jQuery -->
-    <script src="node_modules/bootstrap/dist/js/jquery.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <link href="css/style.css" rel="stylesheet">
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
 
     <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
@@ -23,13 +27,31 @@
 
     <script src="systemjs.config.js"></script>
 
-    <script>
-        System.import('app').catch(function(err){console.error(err);});
-    </script>
+    <script type="text/javascript" src="/node_modules/please-wait/build/please-wait.min.js"></script>
 
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
 </head>
 
 <body>
+<!-- "PleasWait" component (it is showing when page is loading up) -->
+    <script type="text/javascript">
+        window.loading_screen = window.pleaseWait({
+            logo: "/images/logo_loading.png",
+            backgroundColor: '#118C4E',
+            loadingHtml: "<div class='sk-wave'><div class='sk-rect sk-rect1'></div> <div class='sk-rect sk-rect2'></div> <div class='sk-rect sk-rect3'></div> <div class='sk-rect sk-rect4'></div> <div class='sk-rect sk-rect5'></div> </div>"});
+//
+    </script>
+
+    <script>
+        System.import('app').catch(function(err){console.error(err);});
+        window.loading_screen.finish()
+    </script>
+
     <my-app><h1>Loading...</h1></my-app>
 </body>
 
