@@ -11,16 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
-var headers_1 = require('../../common/headers');
+var headers_1 = require('../../configuration/headers/headers');
+var app_settings_1 = require('../../configuration/app-settings/app.settings');
 var RegisterService = (function () {
     function RegisterService(http) {
         this.http = http;
-        this.registrationUrl = 'app/registration';
     }
     RegisterService.prototype.registerNewUser = function (user) {
         var body = JSON.stringify({ user: user });
+        var url = app_settings_1.AppSettings.API_ENDPOINT + "/register";
         return this.http
-            .post(this.registrationUrl, body, { headers: headers_1.contentHeaders })
+            .post(url, body, { headers: headers_1.contentHeaders })
             .toPromise()
             .then(function (response) { return response.json().data; })
             .catch(this.handleError);

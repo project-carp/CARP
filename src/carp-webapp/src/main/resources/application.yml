@@ -47,7 +47,7 @@ logging:
   file: log/webapp.log
   level:
     org.springframework.security: DEBUG
-    logging.level.pl.carp: DEBUG
+    pl.carp: DEBUG
 
 spring:
   resources:

@@ -22,6 +22,18 @@ public class ApplicationUser {
 
     private List<String> roles;
 
+    public ApplicationUser() {
+    }
+
+    public ApplicationUser(String userName) {
+        this.userName = userName;
+    }
+
+    public ApplicationUser(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
     /* ----- Getters & Setters ----- */
 
     public String getId() {

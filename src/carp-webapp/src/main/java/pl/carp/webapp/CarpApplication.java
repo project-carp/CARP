@@ -5,13 +5,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.DispatcherServlet;
 import pl.carp.common.version.Version;
+import pl.carp.webapp.configuration.WebAppConfiguration;
 
 /**
  * Simple Spring Boot's main class
  */
 @SpringBootApplication
+@Import({WebAppConfiguration.class})
 public class CarpApplication {
     private static final Logger logger = LoggerFactory.getLogger(CarpApplication.class);
 
