@@ -4,10 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import pl.carp.webapp.model.ApplicationUser;
-import pl.carp.webapp.model.rest.user.register.TestUser;
+import pl.carp.webapp.model.rest.user.RestResponse;
 import pl.carp.webapp.model.rest.user.register.User;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by phar on 2016-06-03.
@@ -19,11 +17,11 @@ public class RegistrationController {
 
 
     @RequestMapping(value = "/register", method = RequestMethod.POST, headers="Content-Type=application/json")
-    public @ResponseBody String registerUser(@RequestBody TestUser user) {
+    public @ResponseBody RestResponse registerUser(@RequestBody User user) {
         log.debug("Attempting to create user by its name '{}'...", user.getUser().getUserName());
-        return "ok";
-        /*ApplicationUser user = userRepository.findByUserName(userName)
-        return handleUserResult(user);*/
+        RestResponse response = new RestResponse();
+        response.setStatus("ok");
+        return response;
     }
 
 

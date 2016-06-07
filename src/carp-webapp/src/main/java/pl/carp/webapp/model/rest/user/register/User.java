@@ -1,29 +1,21 @@
 package pl.carp.webapp.model.rest.user.register;
 
 
+import pl.carp.webapp.model.ApplicationUser;
+
 /**
  * POJO for registration request
  * Created by phar on 2016-06-03.
  */
 public class User {
 
-    private String userName;
+    private ApplicationUser user;
 
-    private String password;
-
-    public String getUserName() {
-        return userName;
+    public ApplicationUser getUser() {
+        return user;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUser(ApplicationUser user) {
+        this.user = user;
     }
 }
