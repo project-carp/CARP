@@ -1,15 +1,54 @@
-<div>
-    <h1>Login</h1>
-    <form role="form" (submit)="login($event, username.value, password.value)">
-        <div class="form-group">
-            <label for="username">Email</label>
-            <input type="text" #username class="form-control" id="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-            <label for="password">Hasło</label>
-            <input type="password" #password class="form-control" id="password" placeholder="Password">
-        </div>
-        <button type="submit">Wyślij</button>
-    </form>
-</div>
+<div id="signin-wraper">
 
+    <div class="signin-logo">
+        <h1>LOGO</h1>
+    </div>
+
+    <div class="signin-logo">
+        <h1>Sign in to CARP</h1>
+    </div>
+
+    <form id="form" role="form" (submit)="login($event, username.value, password.value)">
+            <span class="input-group">
+                <h1 style="font-size: 20px">Fill sign in input form</h1>
+            </span>
+            <span class="input-group">
+                <input type="text" #username class="form-control" id="username" placeholder="Username">
+            </span>
+            <span class="input-group">
+                <input type="password" #password class="form-control" id="password" placeholder="Password">
+            </span>
+            <span class="input-group">
+                <button type="submit" class="btn btn-default">Login</button>
+            </span>
+            <span class="input-group" style="text-align: center">
+                <a style="font-size: 10px">Forgot password ?</a>
+            </span>
+    </form>
+
+    <div class="socials">
+        <nav class="socialdivs">
+            <div class="fb">
+                <a href="/login/facebook">
+                    <i class="icon-facebook"></i>
+                </a>
+            </div>
+            <div class="gh">
+                <a href="/login/github">
+                    <i class="icon-github-circled"></i>
+                </a>
+            </div>
+            <div class="tw">
+                <a href="#">
+                    <i class="icon-twitter"></i>
+                </a>
+            </div>
+            <div class="gl">
+                <a href="/login/google">
+                    <i class="icon-google"></i>
+                </a>
+            </div>
+            <div style="clear:both"></div>
+        </nav>
+    </div>
+</div>

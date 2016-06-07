@@ -32,6 +32,7 @@ public class EmbeddedTestMongoConfiguration extends AbstractMongoConfiguration {
         return DB_NAME;
     }
 
+    @Bean
     @Override
     public Mongo mongo() throws Exception {
         return new Fongo(FONGO_INSTANCE_NAME).getMongo();

@@ -20,8 +20,8 @@ subprojects {
     buildscript {
 
         dependencies {
-            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-            classpath("org.springframework:springloaded:${springLoadedVersion}")
+            classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: "${springBootVersion}"
+            classpath group: 'org.springframework', name: 'springloaded', version: "${springLoadedVersion}"
         }
 
         repositories {

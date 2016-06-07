@@ -21,7 +21,7 @@ public class RegistrationController {
     @RequestMapping(value = "/register", method = RequestMethod.POST, headers="Content-Type=application/json")
     public @ResponseBody String registerUser(@RequestBody TestUser user) {
         log.debug("Attempting to create user by its name '{}'...", user.getUser().getUserName());
-        return "";
+        return "ok";
         /*ApplicationUser user = userRepository.findByUserName(userName)
         return handleUserResult(user);*/
     }

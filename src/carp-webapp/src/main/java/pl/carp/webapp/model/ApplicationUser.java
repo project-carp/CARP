@@ -22,14 +22,16 @@ public class ApplicationUser {
 
     private List<String> roles;
 
+    public ApplicationUser() {
+    }
 
-    public ApplicationUser(){}
+    public ApplicationUser(String userName) {
+        this.userName = userName;
+    }
 
-    public ApplicationUser(String id, String userName, String password, List<String> roles) {
-        this.id = id;
+    public ApplicationUser(String userName, String password) {
         this.userName = userName;
         this.password = password;
-        this.roles = roles;
     }
 
     /* ----- Getters & Setters ----- */

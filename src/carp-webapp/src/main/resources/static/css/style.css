@@ -37,7 +37,7 @@ a:focus {
     width: 50px;
     height: 100%;
     margin-left: -250px;
-    background: #000;
+    background: #292929;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -46,6 +46,7 @@ a:focus {
 
 .sidebar-button-name{
     visibility: hidden;
+    padding-left: 20px;
 }
 
 #wrapper.toggled .sidebar-button-name{
@@ -68,7 +69,7 @@ a:focus {
 .sidebar-nav {
     position: absolute;
     top: 65px;
-    width: 200px;
+    width: 220px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -79,6 +80,10 @@ a:focus {
     color: rgba(255, 255, 255, 0.89);
     text-indent: 10px;
     line-height: 40px;
+    font-size: 17px;
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .sidebar-nav li a {
@@ -93,8 +98,8 @@ a:focus {
 }
 
 #sidebar-wrapper > .sidebar-nav > a:active > li{
-    color: #000000;
-    background: #ffffff;
+    color: #292929;
+    background: #F6F6F6;
 }
 
 .sidebar-nav > .sidebar-brand {
@@ -108,7 +113,7 @@ a:focus {
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
+    color: #F6F6F6;
     background: none;
 }
 
@@ -116,6 +121,8 @@ a:focus {
     top: 50px;
     margin-left: 50px;
     overflow: hidden;
+    background-color: #F6F6F6;
+    height: 100%;
 }
 
 @media(min-width:768px) {
@@ -128,7 +135,7 @@ a:focus {
     }
 
     #sidebar-wrapper {
-        width: 200px;
+        width: 220px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
@@ -155,7 +162,11 @@ a:focus {
 Custom .css for bar on top of page
 */
 
-.navbar-brand {
+.navbar{
+    min-height: 56px !important;
+}
+
+.navbar-header {
     margin-left: 0px !important;
     left: 20px;
     position: absolute;
@@ -166,12 +177,162 @@ Custom .css for bar on top of page
     position: absolute;
 }
 
-.navbar-inverse {
-    background-color: #111 !important;
-    border-color: #111 !important;;
-    box-shadow: 0px 1px 15px #000 !important;
+.icon-menu {
+    left: -7px !important;
+    position: absolute;
+    font-size: 22px;
+    padding-top: 10px;
 }
 
-.top-menu-element {
-    /*Add style*/
+.navbar-brand{
+    padding-left: 50px !important;
+    font-size: 30px !important;
+}
+
+.navbar-inverse {
+    height: 50px !important;
+    background-color: #ffffff !important;
+    border-style: none !important;;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.2) !important;
+    -moz-box-shadow: 0 1px 3px 0 rgba(0,0,0,.2) !important;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2) !important;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+    padding-right: 10px;
+}
+
+.navbar-inverse .navbar-nav > li{
+    padding-right: 10px;
+}
+
+/*
+Login page styles
+*/
+
+#signin-wraper{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+
+.signin-logo{
+    width: 300px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 25px;
+}
+
+#form{
+    height: 300px;
+    width: 400px;
+    background-color: #ffffff;
+    margin-right: auto;
+    margin-left: auto;
+    -webkit-box-shadow: 5px 5px 20px 1px rgba(173,170,173,0.8);
+    -moz-box-shadow: 5px 5px 20px 1px rgba(173,170,173,0.8);
+    box-shadow: 5px 5px 20px 1px rgba(173,170,173,0.8);
+}
+
+.input-group{
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    padding-top: 20px;
+}
+
+.input-group > .btn {
+    width: 350px !important;
+    background-color: #118C4E !important;
+    border-style: none !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.socials
+{
+    width: 400px;
+    text-align: center;
+    background-color: #292929;
+    color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.8;
+    -webkit-box-shadow: 5px 5px 20px 1px rgba(173,170,173,0.8);
+    -moz-box-shadow: 5px 5px 20px 1px rgba(173,170,173,0.8);
+    box-shadow: 5px 5px 20px 1px rgba(173,170,173,0.8);
+}
+
+.socialdivs
+{
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.socials > .socialdivs > .fb > a{
+    color: #ffffff;
+}
+
+.socials > .socialdivs > .gh > a{
+    color: #ffffff;
+}
+
+.socials > .socialdivs > .tw > a{
+    color: #ffffff;
+}
+
+.socials > .socialdivs > .gl > a{
+    color: #ffffff;
+}
+
+.fb
+{
+    width: 87.5px;
+    height: 75px;
+    float:left;
+}
+
+.fb:hover
+{
+    background-color: #4668b3;
+}
+
+.gh
+{
+    width: 87.5px;
+    height: 75px;
+    float:left;
+}
+
+.gh:hover
+{
+    background-color: #000000;
+}
+
+.tw
+{
+    width: 87.5px;
+    height: 75px;
+    float:left;
+}
+
+.tw:hover
+{
+    background-color: #3095d3;
+}
+
+.gl
+{
+    width: 87.5px;
+    height: 75px;
+    float:left;
+}
+
+.gl:hover
+{
+    background-color: #d95333;
 }
