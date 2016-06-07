@@ -3,8 +3,8 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { contentHeaders } from '../../common/headers';
-
+import { contentHeaders } from '../../configuration/headers/headers';
+import { AppSettings } from '../../configuration/app-settings/app.settings'
 import {User} from '../user';
 
 
@@ -13,15 +13,11 @@ import {User} from '../user';
 export class RegisterService{
     email: string;
 
-
-    private registrationUrl = 'http://localhost:18080/rest';
-
     constructor(private http: Http){}
-
 
     registerNewUser(user: User): Promise<User> {
         let body = JSON.stringify({ user });
-        let url = this.registrationUrl + '/register';
+        let url = `${AppSettings.API_ENDPOINT}/register`;
 
         return this.http
                    .post(url, body, { headers: contentHeaders })
