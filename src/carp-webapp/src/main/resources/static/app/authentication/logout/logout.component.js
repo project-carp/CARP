@@ -17,7 +17,7 @@ var LogoutPage = (function () {
         this.http = http;
     }
     LogoutPage.prototype.ngOnInit = function () {
-        this.http.post('http://localhost:18080/logout')
+        this.http.get('http://localhost:18080/logout')
             .subscribe(function (response) {
             console.log(response);
         }, function (error) {

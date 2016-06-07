@@ -19,7 +19,7 @@ export class LogoutPage implements OnInit{
 
     ngOnInit() {
 
-        this.http.post('http://localhost:18080/logout')
+        this.http.get('http://localhost:18080/logout')
             .subscribe(
                 response => {
                     console.log(response);
@@ -30,7 +30,5 @@ export class LogoutPage implements OnInit{
                 }
             );
     }
-
-
 
 }
