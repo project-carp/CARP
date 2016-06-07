@@ -3,7 +3,6 @@ import { Component } from '@angular/core'
 import { Router, Routes, ROUTER_DIRECTIVES } from '@angular/router';
 import { Http } from '@angular/http';
 import { contentHeaders } from '../../configuration/headers/headers';
-import { AppSettings } from '../../configuration/app-settings/app.settings'
 
 
 @Component({

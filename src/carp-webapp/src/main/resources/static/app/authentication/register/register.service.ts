@@ -16,7 +16,7 @@ export class RegisterService{
     constructor(private http: Http){}
 
     registerNewUser(user: User): Promise<User> {
-        let body = JSON.stringify({ user });
+        let body = JSON.stringify({ userName:user.userName, password: user.password });
         let url = `${AppSettings.API_ENDPOINT}/register`;
 
         return this.http
