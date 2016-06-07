@@ -7,6 +7,7 @@ import { contentHeaders } from '../../configuration/headers/headers';
 import { AppSettings } from '../../configuration/app-settings/app.settings'
 import {User} from '../user';
 
+declare var Md5:any;
 
 @Injectable()
 export class RegisterService{
