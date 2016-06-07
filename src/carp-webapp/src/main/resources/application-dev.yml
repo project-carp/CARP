@@ -1,5 +1,5 @@
 server:
-  port: 38080
+  port: 18080
 
 mongo_configuration: &mongo_configuration
   host: 192.168.99.100

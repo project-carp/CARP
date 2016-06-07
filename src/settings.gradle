@@ -1,5 +1,6 @@
 rootProject.name = "carp"
 
-include ":carp-api"
 include ":carp-common"
+include ":carp-backend"
 include ":carp-webapp"
+include ":carp-webapp-static"

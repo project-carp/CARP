@@ -14,7 +14,7 @@ buildscript {
 
 dependencies {
     compile project(":carp-common")
-    compile project(":carp-api")
+    compile project(":carp-backend")
 
     // Spring Boot's Starters
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "${springBootVersion}"

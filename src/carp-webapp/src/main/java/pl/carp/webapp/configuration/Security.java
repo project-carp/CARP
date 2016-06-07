@@ -19,9 +19,8 @@ import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResour
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.filter.CompositeFilter;
