@@ -16,15 +16,21 @@ var LoginPage = (function () {
     function LoginPage(router, http) {
         this.router = router;
         this.http = http;
+        this.loginUrl = 'login/carp';
     }
     LoginPage.prototype.login = function (event, email, password) {
         var _this = this;
         event.preventDefault();
-        var body = JSON.stringify({ email: email, password: password });
-        this.http.post('http://localhost:18080/login/carp', body, { headers: headers_1.contentHeaders })
+        var body = "email=" + email + "&password=" + password;
+        this.http.post(this.loginUrl, body, { headers: headers_1.contentHeadersUrlEncoded })
             .subscribe(function (response) {
             console.log(response);
-            _this.router.navigate(["/homePage"]);
+            if (response.json().result == "USER_NOT_FOUND") {
+                alert(response.json().result);
+            }
+            else {
+                _this.router.navigate(["/homePage"]);
+            }
         }, function (error) {
             alert(error.text());
             console.log(error.text());

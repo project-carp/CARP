@@ -8,4 +8,4 @@ logging:
   file: log/webapp-test.log
   level:
     org.springframework.security: INFO
-    logging.level.pl.carp: DEBUG
+    pl.carp: DEBUG

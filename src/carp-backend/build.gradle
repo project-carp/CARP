@@ -29,3 +29,11 @@ dependencies {
     testCompile group: 'com.github.fakemongo', name: 'fongo', version: '2.0.7'
     testCompile group: 'com.lordofthejars', name: 'nosqlunit-mongodb', version: '0.9.0'
 }
+
+// Specific configuration for the Spring Loaded hot swap features
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+    }
+}

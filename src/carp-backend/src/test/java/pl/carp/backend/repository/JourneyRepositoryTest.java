@@ -5,11 +5,9 @@ import com.lordofthejars.nosqlunit.core.LoadStrategyEnum;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import pl.carp.backend.base.BaseRepositoryTest;
-import pl.carp.backend.configuration.TestRepositoryConfiguration;
-import pl.carp.backend.configuration.annotation.DefaultTest;
+import pl.carp.backend.base.annotation.RepositoryTest;
 import pl.carp.backend.model.entity.geo.Journey;
 import pl.carp.backend.repository.geo.JourneyRepository;
 
@@ -23,8 +21,7 @@ import static org.junit.Assert.assertThat;
  * Simple integration test with Embedded MongoDB instance
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = TestRepositoryConfiguration.class)
-@DefaultTest
+@RepositoryTest
 @UsingDataSet(locations = "two-journeys.json", loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
 public class JourneyRepositoryTest extends BaseRepositoryTest {
 

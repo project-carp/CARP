@@ -20,7 +20,7 @@ import java.util.Arrays;
 public class LoggingInterceptor {
     private static final Logger log = LoggerFactory.getLogger(LoggingInterceptor.class);
 
-    @Pointcut("within(pl.carp.backend.controller..*) || within(pl.carp.backend.repository..*)")
+    @Pointcut("within(pl.carp.backend.controller..*) || within(pl.carp.backend.repository..*) || within(pl.carp.webapp.controller..*)")
     public void loggingPointcut() {
     }
 
