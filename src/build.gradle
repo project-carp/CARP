@@ -59,6 +59,6 @@ task wrapper(type: Wrapper) {
 }
 
 task stage {
-    dependsOn(":carp-webapp:stage")
+    dependsOn(":carp-webapp-static:stage")
     dependsOn subprojects*.build
 }

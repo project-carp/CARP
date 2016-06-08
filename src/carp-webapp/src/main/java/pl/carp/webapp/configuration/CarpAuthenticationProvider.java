@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
@@ -35,9 +36,8 @@ class CarpAuthenticationProvider implements AuthenticationProvider {
             throw new UsernameNotFoundException(String.format("User '%s' has not been found", authentication.getPrincipal()));
         }
 
-//        ShaPasswordEncoder shaPasswordEncoder = new ShaPasswordEncoder();
-//        if(shaPasswordEncoder.isPasswordValid(user.getPassword(), (String)authentication.getCredentials(), "123")) {
-        if (user.getPassword().equals(authentication.getCredentials()) == false) {
+        ShaPasswordEncoder shaPasswordEncoder = new ShaPasswordEncoder();
+        if(!shaPasswordEncoder.isPasswordValid(user.getPassword(), (String)authentication.getCredentials(), String.valueOf(user.getCreatedDate().getTime()))) {
             throw new BadCredentialsException(String.format("Password for user '%s' is not valid", authentication.getPrincipal()));
         }
         List<GrantedAuthority> roles = user.getRoles() == null ? new ArrayList<>()

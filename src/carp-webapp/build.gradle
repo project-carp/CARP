@@ -1,13 +1,10 @@
 apply plugin: 'spring-boot'
-apply plugin: 'com.moowork.node'
 
 buildscript {
 
     dependencies {
         classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: "${springBootVersion}"
         classpath group: 'org.springframework', name: 'springloaded', version: "${springLoadedVersion}"
-
-        classpath group: 'com.moowork.gradle', name: 'gradle-node-plugin', version: '0.12'
     }
 
 }
@@ -15,6 +12,10 @@ buildscript {
 dependencies {
     compile project(":carp-common")
     compile project(":carp-backend")
+
+    if (project.hasProperty("prod")) {
+        compile project(":carp-webapp-static")
+    }
 
     // Spring Boot's Starters
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "${springBootVersion}"
@@ -40,40 +41,8 @@ idea {
     }
 }
 
-build {
-    dependsOn("npmInstall")
-}
-
 bootRun {
-    dependsOn("npmInstall")
-    dependsOn("tsc")
     systemProperties = System.properties
 
     main = 'pl.carp.webapp.CarpApplication'
-}
-
-node {
-    nodeModulesDir = file("src/main/resources/static/")
-}
-
-task tscw(type: NpmTask) {
-    args = ['run', 'tscw']
-    workingDir = file("src/main/resources/static/")
-}
-
-task tsc(type: NpmTask) {
-    args = ['run', 'tsc']
-    workingDir = file("src/main/resources/static/")
-}
-
-task runFrontend(dependsOn: [npmInstall, tscw]) {}
-
-task cleanAngular(type: Delete) {
-    delete "src/main/resources/static/typings/"
-    delete "src/main/resources/static/node_modules/"
-}
-
-task stage {
-    dependsOn("npmInstall")
-    dependsOn("tsc")
 }
