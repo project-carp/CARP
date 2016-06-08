@@ -1,5 +1,5 @@
 import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 import { Md5 } from 'ts-md5/dist/md5';
@@ -21,10 +21,15 @@ export class RegisterService{
         return this.http
                    .post(url, body, { headers: contentHeaders })
                    .toPromise()
-                   .then(response => response.json().data)
+                   .then(this.extractData)
                    .catch(this.handleError);
     }
 
+
+    private extractData(res: Response) {
+        let body = res.json();
+        return body;
+    }
 
     private handleError(error: any) {
         console.error('An error occurred', error);
