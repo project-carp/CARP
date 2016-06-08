@@ -70,3 +70,6 @@ typings/typings
 node_modules
 jspm_packages
 bower_components
+
+#aplication conf
+application-phar.yml
