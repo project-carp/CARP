@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 
 import { Router, Routes, ROUTER_DIRECTIVES } from '@angular/router';
 import { Http } from '@angular/http';
-import { contentHeaders } from '../../configuration/headers/headers';
+import {contentHeadersUrlEncoded} from '../../configuration/headers/headers';
 
 
 @Component({
@@ -15,17 +15,23 @@ import { contentHeaders } from '../../configuration/headers/headers';
 
 export class LoginPage {
 
+    private loginUrl = 'login/carp';
+
     constructor(public router: Router, public http: Http) {
     }
 
     login(event, email, password) {
         event.preventDefault();
-        let body = JSON.stringify({ email, password });
-        this.http.post('http://localhost:18080/login/carp', body, { headers: contentHeaders })
+        var body = "email=" + email + "&password=" + password;
+        this.http.post(this.loginUrl, body, { headers: contentHeadersUrlEncoded })
             .subscribe(
                 response => {
                     console.log(response);
-                    this.router.navigate([`/homePage`]);
+                    if(response.json().result == "USER_NOT_FOUND") {
+                        alert(response.json().result);
+                    } else {
+                        this.router.navigate([`/homePage`]);
+                    }
                 },
                 error => {
                     alert(error.text());
