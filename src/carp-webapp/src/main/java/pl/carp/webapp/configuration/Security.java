@@ -24,7 +24,7 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.filter.CompositeFilter;
-import pl.carp.webapp.model.entity.ApplicationUser;
+import pl.carp.backend.model.entity.ApplicationUser;
 
 import javax.servlet.Filter;
 import java.security.Principal;

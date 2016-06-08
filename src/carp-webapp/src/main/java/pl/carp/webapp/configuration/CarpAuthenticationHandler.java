@@ -7,9 +7,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
-import pl.carp.webapp.model.entity.ApplicationUser;
-import pl.carp.webapp.model.enums.LoginResult;
-import pl.carp.webapp.model.rest.user.LoginResponse;
+import pl.carp.backend.model.entity.ApplicationUser;
+import pl.carp.backend.model.enums.LoginResult;
+import pl.carp.backend.model.rest.user.LoginResponse;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

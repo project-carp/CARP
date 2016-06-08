@@ -1,0 +1,10 @@
+logging:
+  file: log/backend.log
+  level:
+    org.springframework.security: INFO
+    pl.carp: DEBUG
+
+spring:
+  resources:
+    chain:
+      enabled: true

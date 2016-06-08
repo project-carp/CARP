@@ -1,3 +1,31 @@
 dependencies {
+    compile project(":carp-common")
 
+    // Spring Boot's Starters
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "${springBootVersion}"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: "${springBootVersion}"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: "${springBootVersion}"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: "${springBootVersion}"
+
+    compile group: 'io.github.hzpz.spring.boot', name: 'mongeez-spring-boot-starter', version: '1.2.0'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: "${springBootVersion}"
+
+    // Spring Framework stuff
+    compile group: 'org.springframework', name: 'spring-context', version: "${springVersion}"
+    compile group: 'org.springframework', name: 'spring-context-support', version: "${springVersion}"
+
+    // Security
+    compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.0.10.RELEASE'
+
+    // Data base
+    compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.2.2'
+
+    // Other stuff
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.6.2'
+
+    // Test dependencies
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springBootVersion}"
+    testCompile group: 'com.github.fakemongo', name: 'fongo', version: '2.0.7'
+    testCompile group: 'com.lordofthejars', name: 'nosqlunit-mongodb', version: '0.9.0'
 }
