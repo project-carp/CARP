@@ -17,6 +17,7 @@ import java.util.Date;
  */
 @RestController
 @RequestMapping("/rest/")
+@CrossOrigin
 public class RegistrationController {
     private static final Logger log = LoggerFactory.getLogger(RegistrationController.class);
 
