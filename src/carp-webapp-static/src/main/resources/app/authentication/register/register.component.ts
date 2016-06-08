@@ -31,7 +31,8 @@ export class RegisterPage{
     registerUser(user){
         this.registerService
             .registerNewUser(user)
-            .then(user =>{
+            .then(response =>{
+                console.log(response.status);
                 this.goHomePage();
             })
             .catch(error => this.error = error);

@@ -31,7 +31,7 @@
     <script src="node_modules/please-wait/build/please-wait.min.js"></script>
 </head>
 
-<body>
+<body onload="window.loading_screen.finish()">
 <!-- "PleasWait" component (it is showing when page is loading up) -->
 <script type="text/javascript">
     window.loading_screen = window.pleaseWait({
@@ -45,7 +45,6 @@
     System.import('app').catch(function (err) {
         console.error(err);
     });
-    window.loading_screen.finish()
 </script>
 
 <my-app><h1>Loading...</h1></my-app>

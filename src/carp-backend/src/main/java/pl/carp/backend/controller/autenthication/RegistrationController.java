@@ -16,6 +16,7 @@ import pl.carp.backend.service.RegistrationService;
  */
 @RestController
 @RequestMapping("/rest/")
+@CrossOrigin
 public class RegistrationController {
     private static final Logger log = LoggerFactory.getLogger(RegistrationController.class);
 
