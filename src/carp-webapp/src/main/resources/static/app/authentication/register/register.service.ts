@@ -2,12 +2,11 @@ import { Injectable }    from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
+import { Md5 } from 'ts-md5/dist/md5';
 
 import { contentHeaders } from '../../configuration/headers/headers';
 import { AppSettings } from '../../configuration/app-settings/app.settings'
 import {User} from '../user';
-
-declare var Md5:any;
 
 @Injectable()
 export class RegisterService{
