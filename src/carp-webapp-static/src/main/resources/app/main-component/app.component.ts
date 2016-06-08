@@ -5,6 +5,7 @@ import { LoginPage } from '../authentication/login/login.component';
 import { LogoutPage } from '../authentication/logout/logout.component';
 import { RegisterPage } from '../authentication/register/register.component';
 import { HomePage } from '../home/home.component';
+import { StartPage } from '../start-page/startPage.component';
 
 @Component({
   selector: 'my-app',
@@ -13,6 +14,7 @@ import { HomePage } from '../home/home.component';
 })
 
 @Routes([
+  {path: '/', component: StartPage},
   {path: '/loginPage', component: LoginPage},
   {path: '/homePage', component: HomePage},
   {path: '/registrationPage', component: RegisterPage},

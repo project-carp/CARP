@@ -4,7 +4,11 @@ import { Router, Routes, ROUTER_DIRECTIVES } from '@angular/router';
 import { Http } from '@angular/http';
 import {contentHeadersUrlEncoded} from '../../configuration/headers/headers';
 
-declare var Md5:any;
+import { AppSettings } from '../../configuration/app-settings/app.settings'
+
+import {Md5} from 'ts-md5/dist/md5'
+
+
 
 @Component({
     selector: 'login-tag',
@@ -14,7 +18,7 @@ declare var Md5:any;
 
 export class LoginPage {
 
-    private loginUrl = 'login/carp';
+    private loginUrl = `${AppSettings.API_ENDPOINT}/login/carp`;
 
     constructor(public router: Router, public http: Http) {
     }
