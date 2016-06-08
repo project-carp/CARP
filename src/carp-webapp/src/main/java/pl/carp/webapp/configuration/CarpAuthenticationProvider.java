@@ -11,8 +11,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import pl.carp.webapp.model.entity.ApplicationUser;
-import pl.carp.webapp.repository.ApplicationUserRepository;
+import pl.carp.backend.model.entity.ApplicationUser;
+import pl.carp.backend.repository.ApplicationUserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
