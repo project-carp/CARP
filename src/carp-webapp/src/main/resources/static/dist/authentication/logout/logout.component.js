@@ -11,34 +11,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
-var headers_1 = require('../../configuration/headers/headers');
-var LoginPage = (function () {
-    function LoginPage(router, http) {
+var LogoutPage = (function () {
+    function LogoutPage(router, http) {
         this.router = router;
         this.http = http;
     }
-    LoginPage.prototype.login = function (event, email, password) {
-        var _this = this;
-        event.preventDefault();
-        var body = JSON.stringify({ email: email, password: password });
-        this.http.post('http://localhost:18080/login/carp', body, { headers: headers_1.contentHeaders })
+    LogoutPage.prototype.ngOnInit = function () {
+        this.http.get('http://localhost:18080/logout')
             .subscribe(function (response) {
             console.log(response);
-            _this.router.navigate(["/homePage"]);
         }, function (error) {
             alert(error.text());
             console.log(error.text());
         });
     };
-    LoginPage = __decorate([
+    LogoutPage = __decorate([
         core_1.Component({
-            selector: 'login-tag',
-            templateUrl: 'app/authentication/login/login.component.html',
+            selector: 'logout-tag',
+            templateUrl: 'app/authentication/logout/logout.component.html',
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [router_1.Router, http_1.Http])
-    ], LoginPage);
-    return LoginPage;
+    ], LogoutPage);
+    return LogoutPage;
 }());
-exports.LoginPage = LoginPage;
-//# sourceMappingURL=login.component.js.map
+exports.LogoutPage = LogoutPage;
