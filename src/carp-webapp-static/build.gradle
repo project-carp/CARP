@@ -1,3 +1,45 @@
-dependencies {
+apply plugin: "java"
 
+buildscript {
+    dependencies {
+        classpath("com.moowork.gradle:gradle-node-plugin:0.12")
+        classpath("org.springframework:springloaded:${springLoadedVersion}")
+    }
+}
+
+jar {
+    from(fileTree("/src/main/resources/")) {
+        into "META-INF/resources/"
+    }
+}
+
+apply plugin: "com.moowork.node"
+
+node {
+    nodeModulesDir = file("src/main/resources/")
+}
+
+task tscw(type: NpmTask) {
+    args = ['run', 'tscw']
+    workingDir = file("src/main/resources/")
+}
+
+task tsc(type: NpmTask) {
+    args = ['run', 'tsc']
+    workingDir = file("src/main/resources/")
+}
+
+task webStart(type: NpmTask) {
+    args = ['start']
+    workingDir = file("src/main/resources")
+}
+
+task cleanAngular(type: Delete) {
+    delete "src/main/resources/typings/"
+    delete "src/main/resources/node_modules/"
+}
+
+task stage {
+    dependsOn("npmInstall")
+    dependsOn("tsc")
 }
