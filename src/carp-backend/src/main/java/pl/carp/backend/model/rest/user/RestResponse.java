@@ -1,5 +1,7 @@
 package pl.carp.backend.model.rest.user;
 
+import pl.carp.backend.model.enums.RestResponseStatus;
+
 import java.io.Serializable;
 
 /**
@@ -7,15 +9,15 @@ import java.io.Serializable;
  */
 public class RestResponse implements Serializable {
 
-    private String status;
+    private RestResponseStatus status;
 
     private String description;
 
-    public String getStatus() {
+    public RestResponseStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(RestResponseStatus status) {
         this.status = status;
     }
 

@@ -47,4 +47,3 @@ var LoginPage = (function () {
     return LoginPage;
 }());
 exports.LoginPage = LoginPage;
-//# sourceMappingURL=login.component.js.map
