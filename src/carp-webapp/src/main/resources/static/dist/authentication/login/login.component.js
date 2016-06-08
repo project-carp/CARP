@@ -21,7 +21,7 @@ var LoginPage = (function () {
     LoginPage.prototype.login = function (event, email, password) {
         var _this = this;
         event.preventDefault();
-        var body = "email=" + email + "&password=" + password;
+        var body = "email=" + email + "&password=" + Md5.hashStr(password);
         this.http.post(this.loginUrl, body, { headers: headers_1.contentHeadersUrlEncoded })
             .subscribe(function (response) {
             console.log(response);
@@ -47,3 +47,4 @@ var LoginPage = (function () {
     return LoginPage;
 }());
 exports.LoginPage = LoginPage;
+//# sourceMappingURL=login.component.js.map

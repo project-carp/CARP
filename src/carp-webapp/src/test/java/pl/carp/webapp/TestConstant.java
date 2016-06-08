@@ -5,5 +5,5 @@ package pl.carp.webapp;
  */
 public class TestConstant {
     
-    public static final String MEDIA_TYPE = "text/html;charset=UTF-8";
+    public static final String TEXT_MEDIA_TYPE = "text/html;charset=UTF-8";
 }

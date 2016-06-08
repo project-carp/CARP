@@ -49,6 +49,8 @@ logging:
     pl.carp: DEBUG
 
 spring:
+  application:
+    name: CARPooling
   resources:
     chain:
       enabled: true
