@@ -9,7 +9,8 @@ import { AppComponent } from './main-component/app.component';
 bootstrap(AppComponent, [
  ROUTER_PROVIDERS,
  HTTP_PROVIDERS,
- provide(LocationStrategy, {useClass: HashLocationStrategy})
+ provide(LocationStrategy, {useClass: HashLocationStrategy}),
+ provide(Window, {useValue: window})
 ]);
 
 

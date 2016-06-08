@@ -148,6 +148,10 @@ a:focus {
         width: 220px;
     }
 
+    #sidebar-wrapper.expanded-sidebar {
+        width: 50px;
+    }
+
     #wrapper.toggled #sidebar-wrapper {
         width: 60px;
     }
@@ -351,3 +355,16 @@ Login page styles
 .logout-message {
     text-align: center;
 }
+
+/*
+    Styles for expanded sidebar
+*/
+
+#sidebar-wrapper.expanded-sidebar {
+    width: 220px;
+}
+
+.sidebar-button-name.expanded-sidebar {
+    visibility: visible;
+}
+

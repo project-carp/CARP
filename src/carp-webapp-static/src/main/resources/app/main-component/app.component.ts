@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, NgZone } from '@angular/core';
 import { Routes, Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 import { LoginPage } from '../authentication/login/login.component';
@@ -21,7 +21,15 @@ import { HomePage } from '../home/home.component';
 
 
 export class AppComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, @Inject(Window) window: Window, ngZone:NgZone) {
+    window.onresize = (e) => {
+      ngZone.run(() => {
+        this.isMenuExpanded = window.innerWidth < 768 ? false : true;
+      })
+    }
+
+  }
 
   title = 'Main Page CarPooling';
+  isMenuExpanded = false;
 }
