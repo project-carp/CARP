@@ -12,4 +12,3 @@ var AppSettings = (function () {
     return AppSettings;
 }());
 exports.AppSettings = AppSettings;
-//# sourceMappingURL=app.settings.js.map

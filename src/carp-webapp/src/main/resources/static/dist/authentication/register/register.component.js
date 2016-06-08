@@ -45,4 +45,3 @@ var RegisterPage = (function () {
     return RegisterPage;
 }());
 exports.RegisterPage = RegisterPage;
-//# sourceMappingURL=register.component.js.map

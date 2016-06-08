@@ -6,4 +6,3 @@ exports.contentHeaders.append('Content-Type', 'application/json');
 exports.contentHeadersUrlEncoded = new http_1.Headers();
 exports.contentHeadersUrlEncoded.append('Accept', 'application/json');
 exports.contentHeadersUrlEncoded.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-//# sourceMappingURL=headers.js.map

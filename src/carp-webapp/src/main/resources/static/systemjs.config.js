@@ -5,16 +5,18 @@
 (function(global) {
   // map tells the System loader where to look for things
   var map = {
-    'app':                        'app', // 'dist',
+    'app':                        'dist', // 'dist',
     '@angular':                   'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
-    'rxjs':                       'node_modules/rxjs'
+    'rxjs':                       'node_modules/rxjs',
+    'ts-md5':                     'node_modules/ts-md5'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { defaultExtension: 'js' },
+    'ts-md5':                     { defaultExtension: 'js' },
   };
   var ngPackageNames = [
     'common',

@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
+var md5_1 = require('ts-md5/dist/md5');
 var headers_1 = require('../../configuration/headers/headers');
 var app_settings_1 = require('../../configuration/app-settings/app.settings');
 var RegisterService = (function () {
@@ -18,7 +19,7 @@ var RegisterService = (function () {
         this.http = http;
     }
     RegisterService.prototype.registerNewUser = function (user) {
-        var body = JSON.stringify({ userName: user.userName, password: Md5.hashStr(user.password) });
+        var body = JSON.stringify({ userName: user.userName, password: md5_1.Md5.hashStr(user.password) });
         var url = app_settings_1.AppSettings.API_ENDPOINT + "/register";
         return this.http
             .post(url, body, { headers: headers_1.contentHeaders })
@@ -37,4 +38,3 @@ var RegisterService = (function () {
     return RegisterService;
 }());
 exports.RegisterService = RegisterService;
-//# sourceMappingURL=register.service.js.map
