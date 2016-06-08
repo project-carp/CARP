@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import pl.carp.webapp.model.entity.ApplicationUser;
-import pl.carp.webapp.model.rest.user.RestResponse;
-import pl.carp.webapp.repository.ApplicationUserRepository;
+import pl.carp.backend.model.entity.ApplicationUser;
+import pl.carp.backend.model.rest.user.RestResponse;
+import pl.carp.backend.repository.ApplicationUserRepository;
 
 import java.util.Date;
 
