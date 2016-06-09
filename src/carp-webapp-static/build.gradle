@@ -30,6 +30,8 @@ task tsc(type: NpmTask) {
 }
 
 task webStart(type: NpmTask) {
+    dependsOn("npmInstall")
+
     args = ['start']
     workingDir = file("src/main/resources")
 }

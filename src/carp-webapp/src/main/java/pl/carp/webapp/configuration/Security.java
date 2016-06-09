@@ -18,16 +18,21 @@ import org.springframework.security.oauth2.client.filter.OAuth2ClientContextFilt
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
+import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.filter.CompositeFilter;
+import org.springframework.web.filter.CorsFilter;
 import pl.carp.backend.model.entity.ApplicationUser;
 
-import javax.servlet.Filter;
+import javax.servlet.*;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +43,6 @@ import java.util.List;
 @Configuration
 @RestController
 @EnableOAuth2Client
-@CrossOrigin
 //@EnableWebSecurity
 public class Security extends WebSecurityConfigurerAdapter {
 
@@ -68,6 +72,7 @@ public class Security extends WebSecurityConfigurerAdapter {
                 .and().logout().logoutUrl("/logout").logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler()).deleteCookies("JSESSIONID").permitAll()
                 .and().csrf().disable()
                 .addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class)
+                .addFilterBefore(corsFilter(), ChannelProcessingFilter.class)
 
                 .formLogin()
                 .successHandler(carpAuthenticationHandler)
@@ -130,6 +135,31 @@ public class Security extends WebSecurityConfigurerAdapter {
         oAuth2ClientAuthenticationFilter.setAuthenticationFailureHandler(carpAuthenticationHandler);
         oAuth2ClientAuthenticationFilter.setAuthenticationDetailsSource(new CarpUserDetailsService());
         return oAuth2ClientAuthenticationFilter;
+    }
+
+    private Filter corsFilter() {
+
+        return new Filter() {
+            @Override
+            public void init(FilterConfig filterConfig) throws ServletException {
+
+            }
+
+            @Override
+            public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+                HttpServletResponse res = (HttpServletResponse) response;
+                res.setHeader("Access-Control-Allow-Origin", "*");
+                res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+                res.setHeader("Access-Control-Max-Age", "3600");
+                res.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, x-requested-with");
+                chain.doFilter(request, res);
+            }
+
+            @Override
+            public void destroy() {
+
+            }
+        };
     }
 
 
