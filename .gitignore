@@ -71,6 +71,10 @@ node_modules
 jspm_packages
 bower_components
 dist/
+npm-debug.log*
 
-#aplication conf
+# Custom aplication configurations
 application-phar.yml
+application-lkra.yml
+application-bmik.yml
+application-mais.yml
