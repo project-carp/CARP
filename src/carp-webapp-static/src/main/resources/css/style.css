@@ -1,15 +1,6 @@
-/*!
- * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
-
 /*
-Custom .css for bar on left of page
+   General styles for webpage
 */
-
-/* Toggle Styles */
-
 .loading-message{
     color: #F6F6F6;
     font-size: 25px;
@@ -27,154 +18,12 @@ a:focus {
     border: 0 !important;;
     text-decoration: none !important;
 }
-
-#wrapper {
-    padding-left: 0;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-#wrapper.toggled {
-    padding-left: 250px;
-}
-
-#sidebar-wrapper {
-    z-index: 1000;
-    position: fixed;
-    left: 250px;
-    width: 50px;
-    height: 100%;
-    margin-left: -250px;
-    background: #292929;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-.sidebar-button-name{
-    visibility: hidden;
-    padding-left: 20px;
-}
-
-#wrapper.toggled .sidebar-button-name{
-    visibility: hidden;
-}
-
-#page-content-wrapper {
-    width: 100%;
-    position: absolute;
-    padding: 15px;
-}
-
-#wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-right: -250px;
-}
-
-/* Sidebar Styles */
-
-.sidebar-nav {
-    position: absolute;
-    top: 65px;
-    width: 220px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-}
-
-.sidebar-nav li {
-    color: rgba(255, 255, 255, 0.89);
-    text-indent: 10px;
-    line-height: 40px;
-    font-size: 17px;
-    font-weight: 400;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.sidebar-nav li a {
-    text-decoration: none;
-    color: #999999;
-}
-
-.sidebar-nav li:hover{
-    text-decoration: none;
-    color: #fff;
-    background: rgba(255,255,255,0.2);
-}
-
-#sidebar-wrapper > .sidebar-nav > a:active > li{
-    color: #292929;
-    background: #F6F6F6;
-}
-
-.sidebar-nav > .sidebar-brand {
-    height: 65px;
-    font-size: 18px;
-    line-height: 60px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-    color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-    color: #F6F6F6;
-    background: none;
-}
-
-#page-content-wrapper {
-    top: 50px;
-    margin-left: 50px;
-    overflow: hidden;
-    background-color: #F6F6F6;
-    height: 100%;
-}
-
-@media(min-width:768px) {
-    #wrapper {
-        padding-left: 250px;
-    }
-
-    #wrapper.toggled {
-        padding-left: 0;
-    }
-
-    #sidebar-wrapper {
-        width: 50px;
-    }
-
-    #sidebar-wrapper.expanded-sidebar {
-        width: 220px;
-    }
-
-    #wrapper.toggled #sidebar-wrapper {
-        width: 60px;
-    }
-
-    #page-content-wrapper {
-        top: 50px;
-        margin-left: -50px;
-    }
-
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        left:50px;
-        margin-right: 0;
-    }
-
-    .sidebar-button-name{
-        visibility: visible;
-    }
-}
-
 /*
-Custom .css for bar on top of page
+    Styles for topbar
 */
+.navbar-inverse .navbar-nav > li > a:hover{
+    color: #000000;
+}
 
 .navbar{
     min-height: 56px !important;
@@ -204,7 +53,7 @@ Custom .css for bar on top of page
     padding: 5px 0px 0px 60px!important;
 }
 
-.navbar-inverse {
+.navbar, .navbar-inverse, .navbar-fixed-top{
     height: 50px !important;
     background-color: #ffffff !important;
     border-style: none !important;;
@@ -212,19 +61,65 @@ Custom .css for bar on top of page
     -moz-box-shadow: 0 1px 3px 0 rgba(0,0,0,.2) !important;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.2) !important;
 }
-
-.navbar-inverse .navbar-nav > li > a{
-    padding-right: 10px;
-}
-
-.navbar-inverse .navbar-nav > li{
-    padding-right: 10px;
-}
-
 /*
-Login page styles
+    Styles for sidebar
 */
+#sidebar-wrapper{
+    top: 56px;
+    width: 50px;
+}
 
+.sidebar-nav li {
+    color: rgba(255, 255, 255, 0.89);
+    font-size: 17px;
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.sidebar-nav li a {
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li:hover{
+    text-decoration: none;
+    color: #292929;
+    background: #F6F6F6;
+}
+
+#sidebar-wrapper > .sidebar-nav > a:active > li{
+    color: #292929;
+    background: #F6F6F6;
+}
+/*
+    Styles for expanded sidebar
+*/
+#sidebar-wrapper.expanded-sidebar {
+    width: 250px;
+}
+
+.sidebar-button-name.expanded-sidebar {
+    visibility: visible;
+}
+
+#sidebar-wrapper.expanded-sidebar {
+    width: 50px;
+}
+/*
+    Styles for mainpage
+*/
+#page-content-wrapper{
+    top: 56px;
+    overflow: hidden;
+    position: fixed;
+    background-color: #F6F6F6;
+    width: 100%;
+    height: 100%;
+}
+/*
+    Styles for login page
+*/
 #signin-wraper{
     margin-top: 30px;
     margin-left: auto;
@@ -355,16 +250,3 @@ Login page styles
 .logout-message {
     text-align: center;
 }
-
-/*
-    Styles for expanded sidebar
-*/
-
-#sidebar-wrapper.expanded-sidebar {
-    width: 220px;
-}
-
-.sidebar-button-name.expanded-sidebar {
-    visibility: visible;
-}
-

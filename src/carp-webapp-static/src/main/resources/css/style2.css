@@ -1,0 +1,370 @@
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/*
+Custom .css for bar on left of page
+*/
+
+/* Toggle Styles */
+
+.loading-message{
+    color: #F6F6F6;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.sk-wave .sk-rect{
+    background-color: #ffffff;
+}
+
+a:active,
+a:hover,
+a:focus {
+    outline: 0 !important;
+    border: 0 !important;;
+    text-decoration: none !important;
+}
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 50px;
+    height: 100%;
+    margin-left: -250px;
+    background: #292929;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.sidebar-button-name{
+    visibility: hidden;
+    padding-left: 20px;
+}
+
+#wrapper.toggled .sidebar-button-name{
+    visibility: hidden;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 65px;
+    width: 220px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+.sidebar-nav li {
+    color: rgba(255, 255, 255, 0.89);
+    text-indent: 10px;
+    line-height: 40px;
+    font-size: 17px;
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.sidebar-nav li a {
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li:hover{
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+#sidebar-wrapper > .sidebar-nav > a:active > li{
+    color: #292929;
+    background: #F6F6F6;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #F6F6F6;
+    background: none;
+}
+
+#page-content-wrapper {
+    top: 50px;
+    margin-left: 50px;
+    overflow: hidden;
+    background-color: #F6F6F6;
+    height: 100%;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 220px;
+    }
+
+    #sidebar-wrapper.expanded-sidebar {
+        width: 50px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 60px;
+    }
+
+    #page-content-wrapper {
+        top: 50px;
+        margin-left: -50px;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        left:50px;
+        margin-right: 0;
+    }
+
+    .sidebar-button-name{
+        visibility: visible;
+    }
+}
+
+/*
+Custom .css for bar on top of page
+*/
+
+.navbar{
+    min-height: 56px !important;
+}
+
+.navbar-header {
+    margin-left: 0px !important;
+    left: 20px;
+    position: absolute;
+}
+
+.navbar-nav {
+    right: 20px;
+    position: absolute;
+}
+
+.icon-menu {
+    left: -7px !important;
+    position: absolute;
+    font-size: 25px;
+    padding-top: 10px;
+}
+
+.navbar-brand{
+    padding-left: 50px !important;
+    font-size: 30px !important;
+    padding: 5px 0px 0px 60px!important;
+}
+
+.navbar-inverse {
+    height: 50px !important;
+    background-color: #ffffff !important;
+    border-style: none !important;;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.2) !important;
+    -moz-box-shadow: 0 1px 3px 0 rgba(0,0,0,.2) !important;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2) !important;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+    padding-right: 10px;
+}
+
+.navbar-inverse .navbar-nav > li{
+    padding-right: 10px;
+}
+
+/*
+Login page styles
+*/
+
+#signin-wraper{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+
+.signin-logo{
+    width: 300px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 25px;
+}
+
+#form{
+    height: 300px;
+    width: 400px;
+    background-color: #ffffff;
+    margin-right: auto;
+    margin-left: auto;
+    -webkit-box-shadow: 5px 5px 20px 1px rgba(173,170,173,0.8);
+    -moz-box-shadow: 5px 5px 20px 1px rgba(173,170,173,0.8);
+    box-shadow: 5px 5px 20px 1px rgba(173,170,173,0.8);
+}
+
+.input-group{
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    padding-top: 20px;
+}
+
+.input-group > .btn {
+    width: 350px !important;
+    background-color: #118C4E !important;
+    border-style: none !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.socials
+{
+    width: 400px;
+    text-align: center;
+    background-color: #292929;
+    color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.8;
+    -webkit-box-shadow: 5px 5px 20px 1px rgba(173,170,173,0.8);
+    -moz-box-shadow: 5px 5px 20px 1px rgba(173,170,173,0.8);
+    box-shadow: 5px 5px 20px 1px rgba(173,170,173,0.8);
+}
+
+.socialdivs
+{
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.socials > .socialdivs > .fb > a{
+    color: #ffffff;
+}
+
+.socials > .socialdivs > .gh > a{
+    color: #ffffff;
+}
+
+.socials > .socialdivs > .tw > a{
+    color: #ffffff;
+}
+
+.socials > .socialdivs > .gl > a{
+    color: #ffffff;
+}
+
+.fb
+{
+    width: 87.5px;
+    height: 75px;
+    float:left;
+}
+
+.fb:hover
+{
+    background-color: #4668b3;
+}
+
+.gh
+{
+    width: 87.5px;
+    height: 75px;
+    float:left;
+}
+
+.gh:hover
+{
+    background-color: #000000;
+}
+
+.tw
+{
+    width: 87.5px;
+    height: 75px;
+    float:left;
+}
+
+.tw:hover
+{
+    background-color: #3095d3;
+}
+
+.gl
+{
+    width: 87.5px;
+    height: 75px;
+    float:left;
+}
+
+.gl:hover
+{
+    background-color: #d95333;
+}
+
+.logout-message {
+    text-align: center;
+}
+
+/*
+    Styles for expanded sidebar
+*/
+
+#sidebar-wrapper.expanded-sidebar {
+    width: 250px;
+}
+
+.sidebar-button-name.expanded-sidebar {
+    visibility: visible;
+}
+
