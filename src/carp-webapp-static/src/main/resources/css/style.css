@@ -145,11 +145,11 @@ a:focus {
     }
 
     #sidebar-wrapper {
-        width: 220px;
+        width: 50px;
     }
 
     #sidebar-wrapper.expanded-sidebar {
-        width: 50px;
+        width: 220px;
     }
 
     #wrapper.toggled #sidebar-wrapper {

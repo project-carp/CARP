@@ -1,4 +1,4 @@
-import { Component, Inject, NgZone } from '@angular/core';
+import { Component, Inject, NgZone , OnInit} from '@angular/core';
 import { Routes, Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 import { LoginPage } from '../authentication/login/login.component';
@@ -22,8 +22,9 @@ import { StartPage } from '../start-page/startPage.component';
 ])
 
 
-export class AppComponent {
+export class AppComponent  implements OnInit {
   constructor(private router: Router, @Inject(Window) window: Window, ngZone:NgZone) {
+
     window.onresize = (e) => {
       ngZone.run(() => {
         this.isMenuExpanded = window.innerWidth < 768 ? false : true;
@@ -32,6 +33,10 @@ export class AppComponent {
 
   }
 
+  ngOnInit() {
+    this.isMenuExpanded = window.innerWidth < 768 ? false : true;
+  }
+
   title = 'Main Page CarPooling';
-  isMenuExpanded = false;
+  isMenuExpanded = true;
 }
