@@ -78,7 +78,7 @@ public class Security extends WebSecurityConfigurerAdapter {
                 .successHandler(carpAuthenticationHandler)
                 .failureHandler(carpAuthenticationHandler)
                 .authenticationDetailsSource(new CarpUserDetailsService())
-                .loginPage("/login/carp").usernameParameter("email").passwordParameter("password");
+                .loginPage("/rest/login/carp").usernameParameter("email").passwordParameter("password");
     }
 
     @Override
