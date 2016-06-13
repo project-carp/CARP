@@ -42,10 +42,22 @@ a:focus {
     padding-left: 50px;
 }
 
+.panel {
+    -webkit-box-shadow: 1px 1px 10px 1px rgba(173,170,173,0.8);
+    -moz-box-shadow: 1px 1px 10px 1px rgba(173,170,173,0.8);
+    box-shadow: 1px 1px 10px 1px rgba(173,170,173,0.8);
+}
+
+.nav{
+    margin-bottom: 6px;
+}
 @media(min-width:768px) {
     #wrapper {
         width: 50px;
         padding-left: 50px;
+    }
+    .container-fluid{
+        padding-right: 210px !important;
     }
 }
 /*
@@ -159,8 +171,12 @@ a:focus {
     height: 100%;
 }
 .container-fluid{
-    width: -moz-min-content;
-    margin-left: 5%;
+    padding-right: 40px;
+    padding-bottom: 50px;
+}
+
+.container-fluid-expanded{
+    padding-right: 40px !important;
 }
 /*
     Styles for login page
