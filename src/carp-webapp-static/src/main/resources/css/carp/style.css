@@ -1,14 +1,32 @@
 /*
    General styles for webpage
 */
-.loading-message{
-    color: #F6F6F6;
-    font-size: 25px;
-    font-weight: 600;
+.loading {
+    opacity: 0;
+    transition: opacity .8s ease-in-out;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #118C4E;
+    z-index: -1;
+    color: #ffffff;
 }
 
-.sk-wave .sk-rect{
+.loading > .loading-text {
+    margin: 20% auto auto;
+    text-align: center;
+    width: 250px;
+}
+
+.sk-wave .sk-rect {
     background-color: #ffffff;
+}
+
+my-app:empty + .loading {
+    opacity: 0.6;
+    z-index: 100;
 }
 
 a:active,
