@@ -51,6 +51,11 @@ a:focus {
 .nav{
     margin-bottom: 6px;
 }
+
+.nav > li {
+    float:left;
+}
+
 @media(min-width:768px) {
     #wrapper {
         width: 50px;
@@ -74,6 +79,7 @@ a:focus {
 }
 
 .navbar-nav {
+    margin-left: 145px;
     right: 20px;
     position: absolute;
 }
@@ -311,3 +317,4 @@ a:focus {
 .logout-message {
     text-align: center;
 }
+
