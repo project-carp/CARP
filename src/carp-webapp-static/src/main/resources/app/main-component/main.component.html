@@ -29,7 +29,20 @@
     </nav>
     <!-- Sidebar -->
     <div id="sidebar-wrapper" [class.expanded-sidebar]="isMenuExpanded">
+        <div class="customer-info">
+            <div class="customer-info-logo">
+                <i><img src="/images/user.png"/></i>
+            </div>
+            <div class="customer-info-text" [class.customer-info-text-expanded]="isMenuExpanded">
+                <h1>FirstName LastName</h1>
+                <h2>email@adress.com</h2>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
         <ul class="sidebar-nav">
+            <h3>EXPLORE</h3>
             <a href="#">
                 <li>
                     <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
