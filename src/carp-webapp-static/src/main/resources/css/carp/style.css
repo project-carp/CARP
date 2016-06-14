@@ -121,7 +121,11 @@ a:focus {
 
 .customer-info-logo{
     float: left;
-    margin-top: 30px;
+    margin-top: 22px;
+}
+
+.customer-info-logo > i > img{
+    width: 50px;
 }
 
 .customer-info-text{
